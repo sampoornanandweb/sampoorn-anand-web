@@ -1,1 +1,1116 @@
-PLACEHOLDER_WILL_BE_REPLACED
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Focused Minds — Superpower Lab | Sampoorn Anand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#0A192F',
+                        deepspace: '#0D2137',
+                        nebula: '#112240',
+                        cyan: '#00E5FF',
+                        amber: '#FFD700',
+                        amberLight: '#FFF3B0',
+                        cyanDark: '#00B8D4',
+                        starWhite: '#CCD6F6',
+                        textDim: '#8892B0',
+                        cardBg: 'rgba(17,34,64,0.6)',
+                    },
+                    fontFamily: {
+                        heading: ['Orbitron', 'sans-serif'],
+                        body: ['Nunito', 'sans-serif'],
+                        sub: ['Quicksand', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: #0A192F;
+            color: #CCD6F6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-heading { font-family: 'Orbitron', sans-serif; }
+        .font-sub { font-family: 'Quicksand', sans-serif; }
+        html { scroll-behavior: smooth; }
+
+        /* ===== STARS BACKGROUND ===== */
+        .stars-bg {
+            background:
+                radial-gradient(1.5px 1.5px at 10% 20%, rgba(0,229,255,0.4) 50%, transparent 50%),
+                radial-gradient(1px 1px at 25% 50%, rgba(255,215,0,0.3) 50%, transparent 50%),
+                radial-gradient(1.2px 1.2px at 45% 15%, rgba(204,214,246,0.5) 50%, transparent 50%),
+                radial-gradient(1px 1px at 60% 70%, rgba(0,229,255,0.3) 50%, transparent 50%),
+                radial-gradient(1.5px 1.5px at 80% 30%, rgba(255,215,0,0.25) 50%, transparent 50%),
+                radial-gradient(1px 1px at 90% 80%, rgba(204,214,246,0.4) 50%, transparent 50%),
+                radial-gradient(1.3px 1.3px at 15% 75%, rgba(0,229,255,0.3) 50%, transparent 50%),
+                radial-gradient(1px 1px at 35% 90%, rgba(255,215,0,0.2) 50%, transparent 50%),
+                radial-gradient(1.2px 1.2px at 70% 45%, rgba(204,214,246,0.3) 50%, transparent 50%),
+                radial-gradient(1px 1px at 55% 55%, rgba(0,229,255,0.2) 50%, transparent 50%),
+                radial-gradient(1.5px 1.5px at 5% 45%, rgba(255,215,0,0.3) 50%, transparent 50%),
+                radial-gradient(1px 1px at 95% 15%, rgba(204,214,246,0.4) 50%, transparent 50%);
+        }
+
+        /* ===== GLASSMORPHISM ===== */
+        .glass {
+            background: rgba(17, 34, 64, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 229, 255, 0.12);
+        }
+        .glass-strong {
+            background: rgba(17, 34, 64, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(0, 229, 255, 0.15);
+        }
+        .glass-card {
+            background: rgba(13, 33, 55, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 229, 255, 0.1);
+            transition: all 0.4s cubic-bezier(.4,0,.2,1);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 229, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.08), 0 8px 32px rgba(0,0,0,0.3);
+            transform: translateY(-6px);
+        }
+
+        /* ===== GLOW EFFECTS ===== */
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.3), 0 0 60px rgba(0, 229, 255, 0.1);
+        }
+        .glow-amber {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 60px rgba(255, 215, 0, 0.1);
+        }
+        .glow-text-cyan {
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.5), 0 0 40px rgba(0, 229, 255, 0.2);
+        }
+        .glow-text-amber {
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.2);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(3deg); }
+        }
+        @keyframes float-reverse {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(15px); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.6; filter: brightness(1); }
+            50% { opacity: 1; filter: brightness(1.3); }
+        }
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        @keyframes scan-line {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+        @keyframes sparkle-fly {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(-60px) scale(1.3); opacity: 0.8; }
+            100% { transform: translateY(-120px) scale(0.3); opacity: 0; }
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes ring-expand {
+            0% { transform: scale(0.8); opacity: 0.6; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+        @keyframes focus-pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255,215,0,0.4), 0 0 60px rgba(255,215,0,0.15); }
+            50% { transform: scale(1.08); box-shadow: 0 0 40px rgba(255,215,0,0.6), 0 0 80px rgba(255,215,0,0.25); }
+        }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .float-anim { animation: float 6s ease-in-out infinite; }
+        .float-anim-reverse { animation: float-reverse 7s ease-in-out infinite; }
+        .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+        .rotate-slow { animation: rotate-slow 60s linear infinite; }
+        .twinkle { animation: twinkle 3s ease-in-out infinite; }
+
+        .anim-fade-in-up {
+            animation: fade-in-up 0.8s ease forwards;
+        }
+
+        /* ===== COSMIC BREATHER ===== */
+        .breather-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 229, 255, 0.2);
+        }
+        .breather-container {
+            background: radial-gradient(circle at center,
+                rgba(0, 229, 255, 0.15) 0%,
+                rgba(10, 25, 47, 0) 70%);
+        }
+
+        /* ===== FOCUS STAR ===== */
+        .focus-star {
+            animation: focus-pulse 4s ease-in-out infinite;
+        }
+
+        /* ===== GRATITUDE JAR ===== */
+        .jar-body {
+            background: linear-gradient(180deg,
+                rgba(0, 229, 255, 0.05) 0%,
+                rgba(0, 229, 255, 0.12) 100%);
+            border: 2px solid rgba(0, 229, 255, 0.2);
+            border-top: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .jar-lid {
+            background: linear-gradient(180deg, rgba(0,229,255,0.25), rgba(0,229,255,0.1));
+            border: 2px solid rgba(0, 229, 255, 0.2);
+        }
+        .sparkle-particle {
+            position: absolute;
+            font-size: 14px;
+            animation: sparkle-fly 1.2s ease-out forwards;
+            pointer-events: none;
+        }
+        .jar-item {
+            animation: fade-in-up 0.5s ease forwards;
+        }
+
+        /* ===== SECTION DIVIDERS ===== */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,229,255,0.3), transparent);
+        }
+
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .mobile-menu.open { max-height: 400px; }
+
+        /* ===== MISSION CARDS NUMBERING ===== */
+        .mission-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(180deg, rgba(0,229,255,0.2), transparent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A192F; }
+        ::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.3); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(0,229,255,0.5); }
+
+        /* ===== CONCENTRATION TIMER ===== */
+        .timer-ring {
+            transition: stroke-dashoffset 0.1s linear;
+        }
+
+        /* ===== NEBULA GRADIENT FOR BREATHER ===== */
+        .nebula-gradient {
+            background: conic-gradient(
+                from 0deg,
+                rgba(0, 229, 255, 0.4),
+                rgba(102, 0, 255, 0.3),
+                rgba(255, 0, 128, 0.2),
+                rgba(255, 215, 0, 0.3),
+                rgba(0, 229, 255, 0.4)
+            );
+            filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-midnight">
+
+    <!-- ======= NAVBAR ======= -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-18">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="relative">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan/20 to-amber/20 flex items-center justify-center border border-cyan/20 group-hover:border-cyan/40 transition-all">
+                            <i data-lucide="rocket" class="w-5 h-5 text-cyan"></i>
+                        </div>
+                    </div>
+                    <span class="font-heading font-bold text-base md:text-lg tracking-wider">
+                        <span class="text-cyan">Sampoorn</span>
+                        <span class="text-amber"> Anand</span>
+                    </span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="font-sub font-semibold text-textDim hover:text-cyan transition-colors text-sm tracking-wide">Home</a>
+                    <a href="index.html#programs" class="font-sub font-semibold text-textDim hover:text-cyan transition-colors text-sm tracking-wide">Programs</a>
+                    <a href="#training" class="font-sub font-semibold text-textDim hover:text-cyan transition-colors text-sm tracking-wide">Training</a>
+                    <a href="#missions" class="font-sub font-semibold text-textDim hover:text-cyan transition-colors text-sm tracking-wide">Missions</a>
+                    <a href="#launchpad" class="bg-gradient-to-r from-cyan to-cyanDark text-midnight font-sub font-bold text-sm px-5 py-2.5 rounded-full hover:shadow-lg hover:shadow-cyan/25 transition-all">
+                        Launch 🚀
+                    </a>
+                </div>
+
+                <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/5 transition-colors" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6 text-starWhite" id="menuIconOpen"></i>
+                    <i data-lucide="x" class="w-6 h-6 text-starWhite hidden" id="menuIconClose"></i>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="mobile-menu md:hidden">
+                <div class="flex flex-col gap-3 pb-4 pt-2">
+                    <a href="index.html" class="font-sub font-semibold text-textDim hover:text-cyan transition-colors px-2 py-2">Home</a>
+                    <a href="index.html#programs" class="font-sub font-semibold text-textDim hover:text-cyan transition-colors px-2 py-2">Programs</a>
+                    <a href="#training" class="font-sub font-semibold text-textDim hover:text-cyan transition-colors px-2 py-2">Training</a>
+                    <a href="#missions" class="font-sub font-semibold text-textDim hover:text-cyan transition-colors px-2 py-2">Missions</a>
+                    <a href="#launchpad" class="bg-gradient-to-r from-cyan to-cyanDark text-midnight font-sub font-bold text-sm px-5 py-2.5 rounded-full text-center">Launch 🚀</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======= SECTION 1: HERO ======= -->
+    <section class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden stars-bg">
+        <!-- Nebula blobs -->
+        <div class="absolute w-[500px] h-[500px] rounded-full opacity-20 blur-3xl -top-40 -left-40"
+             style="background: radial-gradient(circle, rgba(0,229,255,0.4), transparent 70%);"></div>
+        <div class="absolute w-[400px] h-[400px] rounded-full opacity-15 blur-3xl top-1/3 -right-32"
+             style="background: radial-gradient(circle, rgba(255,215,0,0.3), transparent 70%);"></div>
+        <div class="absolute w-[300px] h-[300px] rounded-full opacity-10 blur-3xl bottom-20 left-1/4"
+             style="background: radial-gradient(circle, rgba(102,0,255,0.3), transparent 70%);"></div>
+
+        <!-- Floating astronaut/lotus icon -->
+        <div class="absolute top-28 right-8 md:right-20 lg:right-40 float-anim opacity-60 hidden sm:block">
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                <circle cx="60" cy="60" r="50" stroke="rgba(0,229,255,0.15)" stroke-width="1"/>
+                <circle cx="60" cy="60" r="35" stroke="rgba(255,215,0,0.1)" stroke-width="1"/>
+                <!-- Lotus -->
+                <ellipse cx="60" cy="50" rx="8" ry="22" fill="rgba(0,229,255,0.15)" transform="rotate(0 60 60)"/>
+                <ellipse cx="60" cy="50" rx="8" ry="22" fill="rgba(0,229,255,0.12)" transform="rotate(45 60 60)"/>
+                <ellipse cx="60" cy="50" rx="8" ry="22" fill="rgba(0,229,255,0.1)" transform="rotate(90 60 60)"/>
+                <ellipse cx="60" cy="50" rx="8" ry="22" fill="rgba(0,229,255,0.12)" transform="rotate(135 60 60)"/>
+                <ellipse cx="60" cy="50" rx="8" ry="22" fill="rgba(0,229,255,0.15)" transform="rotate(180 60 60)"/>
+                <ellipse cx="60" cy="50" rx="8" ry="22" fill="rgba(0,229,255,0.12)" transform="rotate(225 60 60)"/>
+                <ellipse cx="60" cy="50" rx="8" ry="22" fill="rgba(0,229,255,0.1)" transform="rotate(270 60 60)"/>
+                <ellipse cx="60" cy="50" rx="8" ry="22" fill="rgba(0,229,255,0.12)" transform="rotate(315 60 60)"/>
+                <circle cx="60" cy="60" r="10" fill="rgba(0,229,255,0.25)"/>
+                <circle cx="60" cy="60" r="5" fill="rgba(255,215,0,0.4)"/>
+            </svg>
+        </div>
+
+        <!-- Small floating astronaut -->
+        <div class="absolute bottom-32 left-8 md:left-24 float-anim-reverse opacity-50 hidden sm:block">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                <!-- Helmet -->
+                <circle cx="40" cy="30" r="18" fill="rgba(0,229,255,0.08)" stroke="rgba(0,229,255,0.25)" stroke-width="1.5"/>
+                <circle cx="40" cy="30" r="12" fill="rgba(0,229,255,0.12)"/>
+                <!-- Visor -->
+                <ellipse cx="40" cy="28" rx="8" ry="6" fill="rgba(0,229,255,0.2)" stroke="rgba(255,215,0,0.2)" stroke-width="0.5"/>
+                <!-- Body -->
+                <rect x="30" y="46" width="20" height="22" rx="8" fill="rgba(0,229,255,0.08)" stroke="rgba(0,229,255,0.2)" stroke-width="1"/>
+                <!-- Pack -->
+                <rect x="35" y="48" width="10" height="6" rx="2" fill="rgba(255,215,0,0.15)"/>
+                <!-- Arms -->
+                <line x1="30" y1="52" x2="22" y2="58" stroke="rgba(0,229,255,0.2)" stroke-width="2" stroke-linecap="round"/>
+                <line x1="50" y1="52" x2="58" y2="46" stroke="rgba(0,229,255,0.2)" stroke-width="2" stroke-linecap="round"/>
+                <!-- Stars around -->
+                <circle cx="12" cy="20" r="1.5" fill="rgba(255,215,0,0.5)"/>
+                <circle cx="68" cy="15" r="1" fill="rgba(0,229,255,0.6)"/>
+                <circle cx="65" cy="65" r="1.2" fill="rgba(255,215,0,0.4)"/>
+                <circle cx="15" cy="60" r="1" fill="rgba(0,229,255,0.5)"/>
+            </svg>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 glass rounded-full px-5 py-2.5 mb-8">
+                <span class="w-2 h-2 bg="cyan" rounded-full pulse-glow"></span>
+                <span class="font-sub text-sm font-semibold text-cyan/80 tracking-wider">CLASSES 3 – 5 • SUPERPOWER LAB</span>
+            </div>
+
+            <h1 class="font-heading font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight mb-6 tracking-wider">
+                <span class="text-cyan glow-text-cyan">🎯 Focused</span>
+                <br>
+                <span class="text-amber glow-text-amber">Minds</span>
+            </h1>
+
+            <p class="font-sub text-2xl sm:text-3xl text-amber/80 mb-4 font-semibold" style="text-shadow: 0 0 30px rgba(255,215,0,0.2);">
+                Awaken Your Inner Superpower.
+            </p>
+
+            <p class="text-textDim text-lg sm:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                Welcome to the Lab where focus becomes your greatest strength.
+                <br class="hidden sm:block">
+                Train your mind. Explore the cosmos within.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#training" class="group bg-gradient-to-r from-cyan to-cyanDark text-midnight font-sub font-bold px-10 py-4 rounded-full text-lg hover:shadow-xl hover:shadow-cyan/30 transition-all transform hover:scale-105 flex items-center gap-2">
+                    <span>Enter the Lab</span>
+                    <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#director" class="glass text-starWhite font-sub font-bold px-8 py-4 rounded-full text-lg hover:border-cyan/40 transition-all flex items-center gap-2">
+                    <i data-lucide="brain" class="w-5 h-5 text-amber"></i>
+                    <span>Meet Your Director</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+            <span class="text-xs font-sub font-semibold text-textDim tracking-[0.3em] uppercase">Explore</span>
+            <i data-lucide="chevrons-down" class="w-5 h-5 text-cyan animate-bounce"></i>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ======= SECTION 2: MEET YOUR INNER DIRECTOR ======= -->
+    <section id="director" class="py-20 md:py-28 relative overflow-hidden stars-bg">
+        <div class="absolute w-[400px] h-[400px] rounded-full opacity-10 blur-3xl top-0 right-0"
+             style="background: radial-gradient(circle, rgba(0,229,255,0.3), transparent 70%);"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-4">
+                    <i data-lucide="brain" class="w-4 h-4 text-amber"></i>
+                    <span class="font-sub text-xs font-bold text-amber tracking-widest uppercase">The Science</span>
+                </div>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-starWhite mb-4 tracking-wide">
+                    Meet Your <span class="text-cyan glow-text-cyan">Inner Director</span>
+                </h2>
+                <p class="text-textDim text-lg max-w-2xl mx-auto leading-relaxed">
+                    Deep inside your brain lives a powerful CEO — <strong class="text-cyan">Metacognition</strong>.
+                    It's your superpower to <em>think about your own thinking</em>.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <!-- Brain Diagram -->
+                <div class="flex justify-center">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
+                        <!-- Outer ring -->
+                        <div class="absolute inset-0 rounded-full border border-cyan/10 rotate-slow"></div>
+                        <div class="absolute inset-3 rounded-full border border-amber/10 rotate-slow" style="animation-duration:45s; animation-direction: reverse;"></div>
+
+                        <!-- Brain center -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="relative">
+                                <div class="w-40 h-40 sm:w-48 sm:h-48 rounded-full glass flex items-center justify-center glow-cyan">
+                                    <div class="text-center">
+                                        <i data-lucide="brain" class="w-16 h-16 sm:w-20 sm:h-20 text-cyan mx-auto mb-2"></i>
+                                        <p class="font-heading text-xs sm:text-sm text-cyan font-bold tracking-wider">METACOGNITION</p>
+                                        <p class="text-[10px] sm:text-xs text-textDim">The Brain's CEO</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Orbiting labels -->
+                        <div class="absolute top-2 left-1/2 -translate-x-1/2 glass rounded-full px-3 py-1.5 float-anim">
+                            <span class="text-xs font-sub font-bold text-amber flex items-center gap-1">
+                                <i data-lucide="eye" class="w-3 h-3"></i> Awareness
+                            </span>
+                        </div>
+                        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 glass rounded-full px-3 py-1.5 float-anim-reverse">
+                            <span class="text-xs font-sub font-bold text-cyan flex items-center gap-1">
+                                <i data-lucide="target" class="w-3 h-3"></i> Focus
+                            </span>
+                        </div>
+                        <div class="absolute left-0 top-1/2 -translate-y-1/2 glass rounded-full px-3 py-1.5 float-anim">
+                            <span class="text-xs font-sub font-bold text-amber flex items-center gap-1">
+                                <i data-lucide="compass" class="w-3 h-3"></i> Planning
+                            </span>
+                        </div>
+                        <div class="absolute right-0 top-1/2 -translate-y-1/2 glass rounded-full px-3 py-1.5 float-anim-reverse">
+                            <span class="text-xs font-sub font-bold text-cyan flex items-center gap-1">
+                                <i data-lucide="shield" class="w-3 h-3"></i> Control
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Explanation Cards -->
+                <div class="space-y-5">
+                    <div class="glass-card rounded-2xl p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center flex-shrink-0 border border-cyan/20">
+                                <i data-lucide="scan-eye" class="w-6 h-6 text-cyan"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-sub font-bold text-starWhite text-lg mb-1">The Observer</h3>
+                                <p class="text-textDim text-sm leading-relaxed">Your inner director watches what your brain is doing — like a security camera that sees everything but stays calm.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber/10 flex items-center justify-center flex-shrink-0 border border-amber/20">
+                                <i data-lucide="sliders-horizontal" class="w-6 h-6 text-amber"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-sub font-bold text-starWhite text-lg mb-1">The Controller</h3>
+                                <p class="text-textDim text-sm leading-relaxed">It decides what to pay attention to and what to ignore — like a spaceship's navigation computer choosing the right path through the stars.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan/10 flex items-center justify-center flex-shrink-0 border border-cyan/20">
+                                <i data-lucide="sparkles" class="w-6 h-6 text-cyan"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-sub font-bold text-starWhite text-lg mb-1">The Superpower</h3>
+                                <p class="text-textDim text-sm leading-relaxed">At your age (8–12), this superpower is growing FAST. Training it now means you'll have a mind sharper than any superhero's! 🦸</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ======= SECTION 3: SUPERPOWER TRAINING (INTERACTIVE) ======= -->
+    <section id="training" class="py-20 md:py-28 relative overflow-hidden">
+        <div class="absolute w-[500px] h-[500px] rounded-full opacity-10 blur-3xl -bottom-40 -left-40"
+             style="background: radial-gradient(circle, rgba(102,0,255,0.3), transparent 70%);"></div>
+        <div class="absolute w-[400px] h-[400px] rounded-full opacity-10 blur-3xl top-20 -right-40"
+             style="background: radial-gradient(circle, rgba(255,215,0,0.2), transparent 70%);"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-4">
+                    <i data-lucide="zap" class="w-4 h-4 text-cyan"></i>
+                    <span class="font-sub text-xs font-bold text-cyan tracking-widest uppercase">Interactive Station</span>
+                </div>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-starWhite mb-4 tracking-wide">
+                    Superpower <span class="text-amber glow-text-amber">Training</span>
+                </h2>
+                <p class="text-textDim text-lg max-w-xl mx-auto">
+                    Three powerful stations to train your mind. Try them all!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <!-- ===== STATION 1: COSMIC BREATHER ===== -->
+                <div class="glass-card rounded-3xl p-8 text-center relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan to-transparent"></div>
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <i data-lucide="wind" class="w-5 h-5 text-cyan"></i>
+                        <h3 class="font-heading font-bold text-lg text-cyan tracking-wider">COSMIC BREATHER</h3>
+                    </div>
+                    <p class="text-textDim text-sm mb-8">Sync your breath with the nebula</p>
+
+                    <!-- Breather visual -->
+                    <div class="breather-container relative w-52 h-52 mx-auto flex items-center justify-center mb-6">
+                        <!-- Expanding rings -->
+                        <div id="breathRing1" class="breather-ring w-full h-full absolute" style="opacity:0;"></div>
+                        <div id="breathRing2" class="breather-ring w-3/4 h-3/4 absolute" style="opacity:0;"></div>
+
+                        <!-- Nebula circle -->
+                        <div id="breatherOrb" class="w-24 h-24 rounded-full relative transition-all duration-[4000ms] ease-in-out"
+                             style="background: conic-gradient(from 0deg, rgba(0,229,255,0.5), rgba(102,0,255,0.3), rgba(255,0,128,0.25), rgba(255,215,0,0.35), rgba(0,229,255,0.5)); box-shadow: 0 0 40px rgba(0,229,255,0.3), 0 0 80px rgba(0,229,255,0.1);">
+                            <div class="absolute inset-1 rounded-full bg-midnight/50 flex items-center justify-center">
+                                <span id="breathText" class="font-heading text-xs text-cyan font-bold tracking-wider">READY</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="startBreathBtn" onclick="startBreathing()" class="glass text-cyan font-sub font-bold px-6 py-3 rounded-full text-sm hover:bg-cyan/10 hover:border-cyan/40 transition-all flex items-center gap-2 mx-auto">
+                        <i data-lucide="play" class="w-4 h-4"></i>
+                        <span>Start Breathing</span>
+                    </button>
+                    <p id="breathPhaseLabel" class="text-textDim text-xs mt-3 h-4"></p>
+                </div>
+
+                <!-- ===== STATION 2: FOCUS STAR ===== -->
+                <div class="glass-card rounded-3xl p-8 text-center relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber to-transparent"></div>
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <i data-lucide="star" class="w-5 h-5 text-amber"></i>
+                        <h3 class="font-heading font-bold text-lg text-amber tracking-wider">FOCUS STAR</h3>
+                    </div>
+                    <p class="text-textDim text-sm mb-8">Lock your eyes. Clear your mind.</p>
+
+                    <!-- Star visual -->
+                    <div class="relative w-52 h-52 mx-auto flex items-center justify-center mb-6">
+                        <!-- Timer ring SVG -->
+                        <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 200 200">
+                            <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(255,215,0,0.08)" stroke-width="4"/>
+                            <circle id="timerRing" class="timer-ring" cx="100" cy="100" r="90" fill="none" stroke="rgba(255,215,0,0.5)" stroke-width="4" stroke-linecap="round"
+                                    stroke-dasharray="565.48" stroke-dashoffset="0"/>
+                        </svg>
+                        <!-- Star glow -->
+                        <div class="focus-star w-20 h-20 rounded-full flex items-center justify-center"
+                             style="background: radial-gradient(circle, rgba(255,215,0,0.6), rgba(255,215,0,0.1) 70%);">
+                            <div class="w-10 h-10 rounded-full"
+                                 style="background: radial-gradient(circle, #FFD700, rgba(255,215,0,0.4)); box-shadow: 0 0 30px rgba(255,215,0,0.6);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center gap-3 mb-3">
+                        <button id="focusTimerBtn" onclick="toggleFocusTimer()" class="glass text-amber font-sub font-bold px-6 py-3 rounded-full text-sm hover:bg-amber/10 hover:border-amber/40 transition-all flex items-center gap-2">
+                            <i data-lucide="timer" class="w-4 h-4"></i>
+                            <span id="focusBtnLabel">Start 30s</span>
+                        </button>
+                    </div>
+                    <p id="focusTimerDisplay" class="font-heading text-2xl text-amber font-bold h-8">30</p>
+                    <p class="text-textDim text-xs mt-1">Concentration Timer</p>
+                </div>
+
+                <!-- ===== STATION 3: JAR OF LIGHT ===== -->
+                <div class="glass-card rounded-3xl p-8 text-center relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan to-transparent"></div>
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <i data-lucide="heart" class="w-5 h-5 text-cyan"></i>
+                        <h3 class="font-heading font-bold text-lg text-cyan tracking-wider">JAR OF LIGHT</h3>
+                    </div>
+                    <p class="text-textDim text-sm mb-6">Gratitude makes your inner light glow</p>
+
+                    <!-- Jar visual -->
+                    <div class="relative mx-auto mb-6" style="width: 160px;">
+                        <!-- Jar Lid -->
+                        <div class="jar-lid w-28 h-5 mx-auto rounded-t-lg"></div>
+                        <!-- Jar Body -->
+                        <div id="gratitudeJar" class="jar-body w-32 mx-auto rounded-b-2xl relative overflow-hidden" style="min-height: 140px;">
+                            <!-- Items appear here -->
+                            <div id="jarItems" class="absolute bottom-0 left-0 right-0 flex flex-col-reverse items-center gap-1 p-2">
+                            </div>
+                            <!-- Sparkle container -->
+                            <div id="sparkleContainer" class="absolute inset-0 pointer-events-none"></div>
+                        </div>
+                    </div>
+
+                    <!-- Input -->
+                    <div class="space-y-3">
+                        <input type="text" id="gratitudeInput" placeholder="I am grateful for..."
+                               class="w-full px-4 py-3 rounded-xl bg-midnight/50 border border-cyan/20 text-starWhite placeholder-textDim/50 text-sm focus:border-cyan/50 focus:outline-none transition-all"
+                               onkeydown="if(event.key==='Enter')addGratitude()">
+                        <button onclick="addGratitude()" class="w-full glass text-cyan font-sub font-bold py-3 rounded-xl text-sm hover:bg-cyan/10 hover:border-cyan/40 transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            <span>Add Light</span>
+                        </button>
+                    </div>
+                    <p id="jarCount" class="text-textDim text-xs mt-3">0 lights collected</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ======= SECTION 4: THE 4 CORE MISSIONS ======= -->
+    <section id="missions" class="py-20 md:py-28 relative overflow-hidden stars-bg">
+        <div class="absolute w-[400px] h-[400px] rounded-full opacity-10 blur-3xl top-20 left-0"
+             style="background: radial-gradient(circle, rgba(0,229,255,0.3), transparent 70%);"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-4">
+                    <i data-lucide="swords" class="w-4 h-4 text-amber"></i>
+                    <span class="font-sub text-xs font-bold text-amber tracking-widest uppercase">Activities</span>
+                </div>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-starWhite mb-4 tracking-wide">
+                    The 4 Core <span class="text-cyan glow-text-cyan">Missions</span>
+                </h2>
+                <p class="text-textDim text-lg max-w-xl mx-auto">
+                    Master these missions to unlock your full mental potential.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Mission 1: Target Focus -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+                    <div class="absolute top-4 right-6 mission-number">01</div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-cyan/10 border border-cyan/20 flex items-center justify-center mb-5">
+                            <i data-lucide="crosshair" class="w-7 h-7 text-cyan"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-cyan mb-3 tracking-wider">Target Focus</h3>
+                        <p class="font-sub font-semibold text-amber/60 text-sm mb-3">The Visual Challenge</p>
+                        <p class="text-textDim text-sm leading-relaxed mb-4">
+                            Train your eyes and mind to lock onto a single point. Like a telescope focusing on a distant star, narrow your attention until distractions fade into the cosmic background.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="glass rounded-full px-3 py-1 text-xs text-cyan/70 font-sub font-semibold">Visual Focus</span>
+                            <span class="glass rounded-full px-3 py-1 text-xs text-cyan/70 font-sub font-semibold">Single-Point</span>
+                            <span class="glass rounded-full px-3 py-1 text-xs text-cyan/70 font-sub font-semibold">5 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mission 2: Body Scan 2.0 -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+                    <div class="absolute top-4 right-6 mission-number">02</div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-amber/10 border border-amber/20 flex items-center justify-center mb-5">
+                            <i data-lucide="scan" class="w-7 h-7 text-amber"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-amber mb-3 tracking-wider">Body Scan 2.0</h3>
+                        <p class="font-sub font-semibold text-cyan/60 text-sm mb-3">The Inner Space Journey</p>
+                        <p class="text-textDim text-sm leading-relaxed mb-4">
+                            Travel through your body like a spacecraft exploring a new planet. From the tips of your toes to the top of your head — scan, feel, and understand the universe within you.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="glass rounded-full px-3 py-1 text-xs text-amber/70 font-sub font-semibold">Body Awareness</span>
+                            <span class="glass rounded-full px-3 py-1 text-xs text-amber/70 font-sub font-semibold">Guided</span>
+                            <span class="glass rounded-full px-3 py-1 text-xs text-amber/70 font-sub font-semibold">8 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mission 3: Box Breathing -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+                    <div class="absolute top-4 right-6 mission-number">03</div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-cyan/10 border border-cyan/20 flex items-center justify-center mb-5">
+                            <i data-lucide="box" class="w-7 h-7 text-cyan"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-cyan mb-3 tracking-wider">Box Breathing</h3>
+                        <p class="font-sub font-semibold text-amber/60 text-sm mb-3">The Stabilizer</p>
+                        <p class="text-textDim text-sm leading-relaxed mb-4">
+                            The technique used by astronauts and Navy SEALs. Four equal sides, four steady breaths. Inhale 4s → Hold 4s → Exhale 4s → Hold 4s. Your personal calm-down rocket booster.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="glass rounded-full px-3 py-1 text-xs text-cyan/70 font-sub font-semibold">Breathing</span>
+                            <span class="glass rounded-full px-3 py-1 text-xs text-cyan/70 font-sub font-semibold">4-4-4-4</span>
+                            <span class="glass rounded-full px-3 py-1 text-xs text-cyan/70 font-sub font-semibold">4 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mission 4: Gratitude Log -->
+                <div class="glass-card rounded-3xl p-8 relative overflow-hidden group">
+                    <div class="absolute top-4 right-6 mission-number">04</div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-amber/10 border border-amber/20 flex items-center justify-center mb-5">
+                            <i data-lucide="sun" class="w-7 h-7 text-amber"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-amber mb-3 tracking-wider">Gratitude Log</h3>
+                        <p class="font-sub font-semibold text-cyan/60 text-sm mb-3">The Light Harvester</p>
+                        <p class="text-textDim text-sm leading-relaxed mb-4">
+                            Every day, the universe gives us gifts — some big, some tiny. Capture them in your Gratitude Log. The more light you collect, the brighter your inner universe becomes. ✨
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="glass rounded-full px-3 py-1 text-xs text-amber/70 font-sub font-semibold">Journaling</span>
+                            <span class="glass rounded-full px-3 py-1 text-xs text-amber/70 font-sub font-semibold">Daily</span>
+                            <span class="glass rounded-full px-3 py-1 text-xs text-amber/70 font-sub font-semibold">3 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ======= SECTION 5: THE LAUNCHPAD (OUTCOMES) ======= -->
+    <section id="launchpad" class="py-20 md:py-28 relative overflow-hidden">
+        <div class="absolute w-[600px] h-[600px] rounded-full opacity-10 blur-3xl -bottom-60 left-1/2 -translate-x-1/2"
+             style="background: radial-gradient(circle, rgba(0,229,255,0.3), transparent 60%);"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-4">
+                    <i data-lucide="rocket" class="w-4 h-4 text-amber"></i>
+                    <span class="font-sub text-xs font-bold text-amber tracking-widest uppercase">Outcomes</span>
+                </div>
+                <h2 class="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-starWhite mb-4 tracking-wide">
+                    The <span class="text-amber glow-text-amber">Launchpad</span>
+                </h2>
+                <p class="text-textDim text-lg max-w-xl mx-auto">
+                    Where all your training takes flight. Here's what awaits you.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+
+                <!-- Outcome 1: Better Grades -->
+                <div class="glass-card rounded-3xl p-8 text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-cyan/20 to-cyan/5 border border-cyan/20 flex items-center justify-center group-hover:glow-cyan transition-all">
+                        <i data-lucide="graduation-cap" class="w-10 h-10 text-cyan"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-cyan mb-3 tracking-wider">Better Grades</h3>
+                    <p class="text-textDim text-sm leading-relaxed">
+                        A focused mind absorbs more, remembers better, and performs with confidence. Watch your grades take off like a rocket! 📈
+                    </p>
+                    <div class="mt-6 flex justify-center">
+                        <div class="flex gap-1">
+                            <div class="w-2 h-8 bg-cyan/20 rounded-full"></div>
+                            <div class="w-2 h-12 bg-cyan/30 rounded-full"></div>
+                            <div class="w-2 h-16 bg-cyan/40 rounded-full"></div>
+                            <div class="w-2 h-20 bg-cyan/50 rounded-full"></div>
+                            <div class="w-2 h-24 bg-cyan/70 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outcome 2: Emotional Control -->
+                <div class="glass-card rounded-3xl p-8 text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-amber/20 to-amber/5 border border-amber/20 flex items-center justify-center group-hover:glow-amber transition-all">
+                        <i data-lucide="heart-handshake" class="w-10 h-10 text-amber"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-amber mb-3 tracking-wider">Emotional Control</h3>
+                    <p class="text-textDim text-sm leading-relaxed">
+                        No more emotional rollercoasters. You become the pilot of your feelings — calm, steady, and in command of your inner cosmos. 🧘
+                    </p>
+                    <div class="mt-6 flex justify-center">
+                        <div class="relative w-20 h-20">
+                            <svg viewBox="0 0 80 80" class="w-full h-full">
+                                <circle cx="40" cy="40" r="35" fill="none" stroke="rgba(255,215,0,0.1)" stroke-width="6"/>
+                                <circle cx="40" cy="40" r="35" fill="none" stroke="rgba(255,215,0,0.5)" stroke-width="6"
+                                        stroke-dasharray="220" stroke-dashoffset="55" stroke-linecap="round" transform="rotate(-90 40 40)"/>
+                                <text x="40" y="45" text-anchor="middle" class="font-heading text-xs fill-amber" font-size="14" font-weight="bold">75%</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outcome 3: Unshakeable Calm -->
+                <div class="glass-card rounded-3xl p-8 text-center group">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-cyan/20 to-cyan/5 border border-cyan/20 flex items-center justify-center group-hover:glow-cyan transition-all">
+                        <i data-lucide="mountain" class="w-10 h-10 text-cyan"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-cyan mb-3 tracking-wider">Unshakeable Calm</h3>
+                    <p class="text-textDim text-sm leading-relaxed">
+                        Like the stillness of deep space, you cultivate an inner peace that nothing can disturb. Chaos outside, calm inside. 🌊
+                    </p>
+                    <div class="mt-6 flex justify-center">
+                        <!-- Calm wave -->
+                        <svg width="120" height="40" viewBox="0 0 120 40" class="opacity-50">
+                            <path d="M0,20 Q15,10 30,20 T60,20 T90,20 T120,20" fill="none" stroke="rgba(0,229,255,0.5)" stroke-width="2">
+                                <animate attributeName="d" dur="3s" repeatCount="indefinite"
+                                    values="M0,20 Q15,10 30,20 T60,20 T90,20 T120,20;
+                                            M0,20 Q15,25 30,20 T60,20 T90,20 T120,20;
+                                            M0,20 Q15,10 30,20 T60,20 T90,20 T120,20"/>
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-16">
+                <div class="glass rounded-3xl p-10 md:p-14 max-w-3xl mx-auto relative overflow-hidden">
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan via-amber to-cyan"></div>
+                    <h3 class="font-heading font-bold text-2xl sm:text-3xl text-starWhite mb-4 tracking-wide">
+                        Ready for <span class="text-cyan">Liftoff</span>?
+                    </h3>
+                    <p class="text-textDim text-lg mb-8 max-w-lg mx-auto">
+                        Every great explorer started with a single step. Your journey to an unstoppable mind begins today.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="index.html#join" class="bg-gradient-to-r from-cyan to-cyanDark text-midnight font-sub font-bold px-10 py-4 rounded-full text-lg hover:shadow-xl hover:shadow-cyan/30 transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                            <i data-lucide="rocket" class="w-5 h-5"></i>
+                            <span>Join Sampoorn Anand</span>
+                        </a>
+                        <a href="index.html#programs" class="glass text-starWhite font-sub font-bold px-8 py-4 rounded-full text-lg hover:border-cyan/40 transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="layout-grid" class="w-5 h-5 text-amber"></i>
+                            <span>All Programs</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="relative border-t border-cyan/10 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan/20 to-amber/20 flex items-center justify-center border border-cyan/20">
+                            <i data-lucide="rocket" class="w-5 h-5 text-cyan"></i>
+                        </div>
+                        <span class="font-heading font-bold text-base tracking-wider">
+                            <span class="text-cyan">Sampoorn</span>
+                            <span class="text-amber"> Anand</span>
+                        </span>
+                    </div>
+                    <p class="text-textDim text-sm leading-relaxed max-w-sm">
+                        Nurturing young minds through the art of meditation. Complete bliss for school children across all ages.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="font-sub font-bold text-starWhite text-sm mb-4 uppercase tracking-wider">Explore</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-textDim hover:text-cyan transition-colors">Home</a></li>
+                        <li><a href="index.html#programs" class="text-textDim hover:text-cyan transition-colors">All Programs</a></li>
+                        <li><a href="playful-roots.html" class="text-textDim hover:text-cyan transition-colors">Playful Roots</a></li>
+                        <li><a href="#training" class="text-textDim hover:text-cyan transition-colors">Superpower Training</a></li>
+                    </ul>
+                </div>
+
+                <!-- Connect -->
+                <div>
+                    <h4 class="font-sub font-bold text-starWhite text-sm mb-4 uppercase tracking-wider">Connect</h4>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 glass rounded-lg flex items-center justify-center hover:border-cyan/40 transition-all" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-5 h-5 text-textDim"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 glass rounded-lg flex items-center justify-center hover:border-cyan/40 transition-all" aria-label="Youtube">
+                            <i data-lucide="youtube" class="w-5 h-5 text-textDim"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 glass rounded-lg flex items-center justify-center hover:border-cyan/40 transition-all" aria-label="Mail">
+                            <i data-lucide="mail" class="w-5 h-5 text-textDim"></i>
+                        </a>
+                    </div>
+                    <p class="text-textDim text-xs mt-4">info@sampoorn-anand.org</p>
+                </div>
+            </div>
+
+            <div class="section-divider mb-6"></div>
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-textDim text-xs">&copy; 2026 Sampoorn Anand. All rights reserved.</p>
+                <p class="text-textDim text-xs">Made with 🚀 for young space explorers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======= JAVASCRIPT ======= -->
+    <script>
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initScrollAnimations();
+        });
+
+        // ===== MOBILE MENU =====
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIconOpen = document.getElementById('menuIconOpen');
+        const menuIconClose = document.getElementById('menuIconClose');
+        let menuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('open');
+            menuIconOpen.classList.toggle('hidden');
+            menuIconClose.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuOpen = false;
+                mobileMenu.classList.remove('open');
+                menuIconOpen.classList.remove('hidden');
+                menuIconClose.classList.add('hidden');
+            });
+        });
+
+        // ===== COSMIC BREATHER =====
+        let breathingActive = false;
+        let breathInterval = null;
+        const phases = [
+            { text: 'BREATHE IN', duration: 4000, scale: 1.8 },
+            { text: 'HOLD', duration: 4000, scale: 1.8 },
+            { text: 'BREATHE OUT', duration: 4000, scale: 1 },
+            { text: 'HOLD', duration: 4000, scale: 1 }
+        ];
+
+        function startBreathing() {
+            const btn = document.getElementById('startBreathBtn');
+            const orb = document.getElementById('breatherOrb');
+            const textEl = document.getElementById('breathText');
+            const label = document.getElementById('breathPhaseLabel');
+
+            if (breathingActive) {
+                breathingActive = false;
+                clearInterval(breathInterval);
+                orb.style.transform = 'scale(1)';
+                orb.style.boxShadow = '0 0 40px rgba(0,229,255,0.3), 0 0 80px rgba(0,229,255,0.1)';
+                textEl.textContent = 'READY';
+                label.textContent = '';
+                btn.querySelector('span').textContent = 'Start Breathing';
+                btn.querySelector('i').setAttribute('data-lucide', 'play');
+                lucide.createIcons();
+                return;
+            }
+
+            breathingActive = true;
+            btn.querySelector('span').textContent = 'Stop';
+            btn.querySelector('i').setAttribute('data-lucide', 'pause');
+            lucide.createIcons();
+            let phaseIndex = 0;
+
+            function runPhase() {
+                if (!breathingActive) return;
+                const phase = phases[phaseIndex];
+                textEl.textContent = phase.text;
+                label.textContent = `${phase.text} — ${phase.duration / 1000}s`;
+                orb.style.transform = `scale(${phase.scale})`;
+
+                if (phase.scale > 1) {
+                    orb.style.boxShadow = '0 0 60px rgba(0,229,255,0.5), 0 0 120px rgba(0,229,255,0.2)';
+                } else {
+                    orb.style.boxShadow = '0 0 30px rgba(0,229,255,0.2), 0 0 60px rgba(0,229,255,0.08)';
+                }
+
+                phaseIndex = (phaseIndex + 1) % phases.length;
+            }
+
+            runPhase();
+            breathInterval = setInterval(runPhase, 4000);
+        }
+
+        // ===== FOCUS STAR TIMER =====
+        let focusActive = false;
+        let focusInterval = null;
+        let focusTime = 30;
+        const totalFocusTime = 30;
+
+        function toggleFocusTimer() {
+            const btn = document.getElementById('focusTimerBtn');
+            const display = document.getElementById('focusTimerDisplay');
+            const ring = document.getElementById('timerRing');
+            const circumference = 2 * Math.PI * 90;
+
+            if (focusActive) {
+                focusActive = false;
+                clearInterval(focusInterval);
+                focusTime = totalFocusTime;
+                display.textContent = totalFocusTime;
+                ring.style.strokeDashoffset = '0';
+                document.getElementById('focusBtnLabel').textContent = `Start ${totalFocusTime}s`;
+                return;
+            }
+
+            focusActive = true;
+            focusTime = totalFocusTime;
+            document.getElementById('focusBtnLabel').textContent = 'Reset';
+
+            focusInterval = setInterval(() => {
+                focusTime--;
+                display.textContent = focusTime;
+
+                const progress = 1 - (focusTime / totalFocusTime);
+                ring.style.strokeDashoffset = (progress * circumference).toString();
+
+                if (focusTime <= 0) {
+                    clearInterval(focusInterval);
+                    focusActive = false;
+                    display.textContent = '🌟';
+                    document.getElementById('focusBtnLabel').textContent = `Start ${totalFocusTime}s`;
+                    setTimeout(() => {
+                        display.textContent = totalFocusTime;
+                        ring.style.strokeDashoffset = '0';
+                    }, 3000);
+                }
+            }, 1000);
+        }
+
+        // ===== JAR OF LIGHT (GRATITUDE) =====
+        let gratitudeItems = [];
+        const sparkleEmojis = ['✨', '⭐', '💫', '🌟', '🔆', '💛'];
+
+        function addGratitude() {
+            const input = document.getElementById('gratitudeInput');
+            const value = input.value.trim();
+            if (!value) return;
+
+            gratitudeItems.push(value);
+            input.value = '';
+
+            // Add sparkle animation
+            const sparkleContainer = document.getElementById('sparkleContainer');
+            for (let i = 0; i < 5; i++) {
+                const spark = document.createElement('span');
+                spark.className = 'sparkle-particle';
+                spark.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
+                spark.style.left = `${20 + Math.random() * 60}%`;
+                spark.style.bottom = '10%';
+                spark.style.animationDelay = `${i * 0.1}s`;
+                sparkleContainer.appendChild(spark);
+                setTimeout(() => spark.remove(), 1500);
+            }
+
+            // Add item to jar
+            const jarItems = document.getElementById('jarItems');
+            const item = document.createElement('div');
+            item.className = 'jar-item text-[10px] font-sub font-semibold text-amber/80 bg-amber/10 border border-amber/20 rounded-full px-2 py-0.5 truncate max-w-full';
+            item.textContent = value;
+            item.title = value;
+            jarItems.prepend(item);
+
+            // Keep only last 8 visible
+            const allItems = jarItems.children;
+            if (allItems.length > 8) {
+                jarItems.removeChild(allItems[allItems.length - 1]);
+            }
+
+            // Update count
+            document.getElementById('jarCount').textContent = `${gratitudeItems.length} light${gratitudeItems.length !== 1 ? 's' : ''} collected`;
+
+            // Glow effect on jar
+            const jar = document.getElementById('gratitudeJar');
+            const glowIntensity = Math.min(gratitudeItems.length * 0.03, 0.3);
+            jar.style.boxShadow = `inset 0 0 30px rgba(255,215,0,${glowIntensity}), 0 0 20px rgba(0,229,255,${glowIntensity * 0.5})`;
+        }
+
+        // ===== SCROLL ANIMATIONS =====
+        function initScrollAnimations() {
+            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.glass-card, section > div > .text-center').forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = `opacity 0.7s ease ${i * 0.08}s, transform 0.7s ease ${i * 0.08}s`;
+                observer.observe(el);
+            });
+        }
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.style.borderBottomColor = 'rgba(0,229,255,0.15)';
+            } else {
+                nav.style.borderBottomColor = 'rgba(0,229,255,0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
