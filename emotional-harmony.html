@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Emotional Harmony — Resonance Lab | Sampoorn Anand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        harmony: '#0F172A',
+                        resonance: '#1E1B4B',
+                        studio: '#2E1065',
+                        teal: '#2DD4BF',
+                        violet: '#A855F7',
+                        electric: '#3B82F6',
+                        starWhite: '#F8FAFC',
+                        textDim: '#94A3B8',
+                        cardBg: 'rgba(30, 41, 59, 0.7)',
+                    },
+                    fontFamily: {
+                        heading: ['Orbitron', 'sans-serif'],
+                        body: ['Nunito', 'sans-serif'],
+                        sub: ['Space Grotesk', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: #0F172A;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-heading { font-family: 'Orbitron', sans-serif; }
+        .font-sub { font-family: 'Space Grotesk', sans-serif; }
+        html { scroll-behavior: smooth; }
+
+        /* ===== RESONANCE WAVE BACKGROUND ===== */
+        .wave-bg {
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(45, 212, 191, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        /* ===== GLASSMORPHISM ===== */
+        .glass {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(45, 212, 191, 0.1);
+        }
+        .glass-strong {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(45, 212, 191, 0.1);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(45, 212, 191, 0.05);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(45, 212, 191, 0.3);
+            box-shadow: 0 0 40px rgba(45, 212, 191, 0.05);
+            transform: translateY(-8px);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.6); }
+        }
+        .wave-bar {
+            width: 4px;
+            height: 40px;
+            background: #2DD4BF;
+            border-radius: 2px;
+            animation: wave 1.2s ease-in-out infinite;
+        }
+        @keyframes float-slow {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10px, -20px); }
+        }
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            animation: float-slow 10s infinite alternate;
+        }
+
+        /* ===== SLIDER STYLING ===== */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            background: rgba(45, 212, 191, 0.1);
+            border-radius: 3px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #2DD4BF;
+            cursor: pointer;
+            margin-top: -7px;
+            box-shadow: 0 0 15px rgba(45, 212, 191, 0.5);
+        }
+
+        /* ===== THOUGHT DISSOLVER ===== */
+        .thought-bubble {
+            transition: all 2s ease-out;
+        }
+        .dissolving {
+            opacity: 0;
+            transform: scale(1.5) translateY(-50px);
+            filter: blur(20px);
+        }
+
+        /* ===== MISSION BADGE ===== */
+        .mission-id {
+            font-size: 5rem;
+            font-weight: 900;
+            opacity: 0.05;
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="wave-bg">
+
+    <!-- ======= NAVBAR ======= -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-teal/10 flex items-center justify-center border border-teal/20 group-hover:border-teal/50 transition-all">
+                        <i data-lucide="waves" class="w-5 h-5 text-teal"></i>
+                    </div>
+                    <span class="font-heading font-bold text-base tracking-wider">
+                        <span class="text-teal">Sampoorn</span>
+                        <span class="text-violet-400"> Anand</span>
+                    </span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="font-sub text-sm text-textDim hover:text-teal transition-colors">Home</a>
+                    <a href="#lab" class="font-sub text-sm text-textDim hover:text-teal transition-colors">Resonance Lab</a>
+                    <a href="#science" class="font-sub text-sm text-textDim hover:text-teal transition-colors">The Science</a>
+                    <a href="#missions" class="font-sub text-sm text-textDim hover:text-teal transition-colors">Missions</a>
+                    <a href="#join" class="bg-teal text-harmony font-sub font-bold text-xs px-5 py-2 rounded-full hover:bg-teal/80 transition-all uppercase tracking-widest">
+                        Tuning 📡
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======= HERO ======= -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="blob w-96 h-96 bg-teal/20 -top-20 -left-20"></div>
+        <div class="blob w-[500px] h-[500px] bg-violet/10 bottom-0 right-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-flex items-center gap-3 glass rounded-full px-4 py-1.5 mb-6">
+                    <div class="flex gap-1">
+                        <div class="wave-bar" style="animation-delay: 0.1s; height: 12px;"></div>
+                        <div class="wave-bar" style="animation-delay: 0.3s; height: 18px;"></div>
+                        <div class="wave-bar" style="animation-delay: 0.2s; height: 14px;"></div>
+                    </div>
+                    <span class="text-xs font-sub font-bold text-teal tracking-widest uppercase">Classes 6 – 8 • Resonance Lab</span>
+                </div>
+
+                <h1 class="font-heading font-black text-5xl md:text-7xl leading-tight mb-6">
+                    Master Your <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal via-electric to-violet">Emotional</span> <br>
+                    Resonance.
+                </h1>
+
+                <p class="text-textDim text-lg md:text-xl max-w-lg mb-10 font-sub font-light leading-relaxed">
+                    Middle school is high frequency. Navigate the noise, find your unique signal, and stay in harmony with yourself.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#lab" class="bg-teal text-harmony font-heading font-bold px-8 py-4 rounded-xl hover:shadow-2xl hover:shadow-teal/20 transition-all flex items-center gap-2">
+                        Enter the Lab <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hidden lg:block relative">
+                <!-- Abstract Resonance Visual -->
+                <div class="relative w-full h-[500px] flex items-center justify-center">
+                    <div class="absolute w-80 h-80 border-2 border-teal/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
+                    <div class="absolute w-64 h-64 border-2 border-violet/10 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
+                    <div class="absolute w-48 h-48 border-2 border-electric/10 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                    
+                    <div class="relative z-10 glass p-8 rounded-3xl border-teal/20 text-center">
+                        <i data-lucide="fingerprint" class="w-16 h-16 text-teal mx-auto mb-4 opacity-80"></i>
+                        <p class="font-heading text-sm tracking-widest text-teal">IDENTITY SIGNAL</p>
+                        <div class="flex justify-center gap-1 mt-4">
+                            <div class="wave-bar h-8" style="animation-delay: 0.1s"></div>
+                            <div class="wave-bar h-12" style="animation-delay: 0.4s"></div>
+                            <div class="wave-bar h-16" style="animation-delay: 0.2s"></div>
+                            <div class="wave-bar h-14" style="animation-delay: 0.5s"></div>
+                            <div class="wave-bar h-10" style="animation-delay: 0.3s"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= THE SCIENCE ======= -->
+    <section id="science" class="py-24 relative bg-resonance/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="font-heading text-3xl md:text-5xl mb-4">The Science of <span class="text-teal">You</span></h2>
+                <p class="text-textDim max-w-2xl mx-auto font-sub">Understanding the software update your brain is currently running.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-3xl relative overflow-hidden">
+                    <div class="mission-id">ID</div>
+                    <i data-lucide="user-search" class="w-10 h-10 text-teal mb-6"></i>
+                    <h3 class="font-heading text-xl mb-4">Identity Forge</h3>
+                    <p class="text-textDim text-sm leading-relaxed">According to Erikson, you're currently building your "Self." It's normal to feel different versions of you fighting for control. Meditation helps you find the true signal.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl relative overflow-hidden">
+                    <div class="mission-id">AB</div>
+                    <i data-lucide="layers" class="w-10 h-10 text-violet-400 mb-6"></i>
+                    <h3 class="font-heading text-xl mb-4">Abstract Core</h3>
+                    <p class="text-textDim text-sm leading-relaxed">Piaget noted that you can now think about thinking (Metacognition). This is your new superpower. You're not just feeling emotions; you're observing them.</p>
+                </div>
+                <div class="glass-card p-8 rounded-3xl relative overflow-hidden">
+                    <div class="mission-id">DR</div>
+                    <i data-lucide="shield-check" class="w-10 h-10 text-electric mb-6"></i>
+                    <h3 class="font-heading text-xl mb-4">Differentiation</h3>
+                    <p class="text-textDim text-sm leading-relaxed">The ability to stay "You" even when peer pressure is at max volume. We call this Differentiation of Self. It's the ultimate social shield.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= THE RESONANCE LAB (INTERACTIVE) ======= -->
+    <section id="lab" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-4">
+                    <i data-lucide="cpu" class="w-4 h-4 text-teal"></i>
+                    <span class="font-sub text-xs font-bold text-teal tracking-widest uppercase">The Resonance Lab</span>
+                </div>
+                <h2 class="font-heading text-3xl md:text-5xl mb-4">Tune Your <span class="text-teal">Frequencies</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- TOOL 1: FREQUENCY TUNER -->
+                <div class="glass-card p-10 rounded-[2.5rem] border-teal/10">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded-xl bg-teal/10 flex items-center justify-center">
+                            <i data-lucide="sliders" class="text-teal"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-xl">The Mood Mixer</h3>
+                            <p class="text-textDim text-xs uppercase tracking-widest">Calibration Tool</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-sub">Stress Frequency</label>
+                                <span id="stressVal" class="text-xs text-teal font-bold">40%</span>
+                            </div>
+                            <input type="range" id="stressSlider" class="w-full" oninput="updateMixer()">
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-sub">Social Static (Peer Pressure)</label>
+                                <span id="socialVal" class="text-xs text-violet-400 font-bold">20%</span>
+                            </div>
+                            <input type="range" id="socialSlider" class="w-full" oninput="updateMixer()">
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-sub">Inner Harmony</label>
+                                <span id="harmonyVal" class="text-xs text-electric font-bold">80%</span>
+                            </div>
+                            <input type="range" id="harmonySlider" class="w-full" oninput="updateMixer()">
+                        </div>
+                    </div>
+
+                    <div class="mt-12 p-6 glass rounded-2xl border-dashed border-teal/20 text-center">
+                        <p id="mixerResult" class="font-sub italic text-starWhite">"Signal is clear. You are currently in a state of Flow."</p>
+                        <div id="visualizer" class="flex justify-center items-end gap-1 h-12 mt-6">
+                            <!-- Visualizer bars injected by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 2: THOUGHT DISSOLVER -->
+                <div class="glass-card p-10 rounded-[2.5rem] border-violet/10 flex flex-col">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded-xl bg-violet/10 flex items-center justify-center">
+                            <i data-lucide="cloud-off" class="text-violet-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-heading text-xl">The Cloud Dissolver</h3>
+                            <p class="text-textDim text-xs uppercase tracking-widest">Cognitive Reframing</p>
+                        </div>
+                    </div>
+
+                    <p class="text-textDim text-sm mb-6">Type a heavy thought or a social expectation that's weighing you down. Watch it lose its weight.</p>
+                    
+                    <div class="flex-grow flex flex-col">
+                        <textarea id="thoughtInput" placeholder="I feel like I have to act a certain way to fit in..." 
+                                  class="w-full flex-grow glass p-6 rounded-2xl text-starWhite placeholder:text-textDim/50 focus:outline-none focus:border-violet-400/50 resize-none transition-all"></textarea>
+                        
+                        <button onclick="dissolveThought()" class="mt-6 w-full py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-electric font-heading font-bold text-sm tracking-widest hover:scale-[1.02] active:scale-95 transition-all">
+                            DISSOLVE SIGNAL
+                        </button>
+                    </div>
+
+                    <div id="dissolveArea" class="hidden fixed inset-0 z-[100] bg-harmony flex items-center justify-center p-8 text-center">
+                        <div id="thoughtDisplay" class="thought-bubble max-w-2xl font-heading text-2xl md:text-4xl text-teal"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= MISSIONS ======= -->
+    <section id="missions" class="py-24 bg-resonance/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl mb-4">Core <span class="text-teal">Missions</span></h2>
+                <p class="text-textDim">Practice modules for real-world emotional mastery.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-8 rounded-3xl flex gap-6 items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-teal/10 flex-shrink-0 flex items-center justify-center">
+                        <i data-lucide="radio" class="text-teal"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-lg mb-2">Signal Search</h3>
+                        <p class="text-textDim text-sm mb-4">Practice identifying the physical location of an emotion in your body. Is it a tight chest? A shaky hand? Label it to tame it.</p>
+                        <span class="text-[10px] font-bold text-teal/60 border border-teal/20 px-2 py-1 rounded">5 MINS</span>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl flex gap-6 items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-violet/10 flex-shrink-0 flex items-center justify-center">
+                        <i data-lucide="users" class="text-violet-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-lg mb-2">The Social Buffer</h3>
+                        <p class="text-textDim text-sm mb-4">A visualization exercise to create a mental 'buffer zone' between peer opinions and your self-worth. Build your inner shield.</p>
+                        <span class="text-[10px] font-bold text-violet-400/60 border border-violet-400/20 px-2 py-1 rounded">8 MINS</span>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl flex gap-6 items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-electric/10 flex-shrink-0 flex items-center justify-center">
+                        <i data-lucide="zap" class="text-electric"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-lg mb-2">Frequency Shift</h3>
+                        <p class="text-textDim text-sm mb-4">Learn cognitive reframing. Turn "They think I'm weird" into "I have a unique perspective that they aren't used to yet."</p>
+                        <span class="text-[10px] font-bold text-electric/60 border border-electric/20 px-2 py-1 rounded">10 MINS</span>
+                    </div>
+                </div>
+                <div class="glass-card p-8 rounded-3xl flex gap-6 items-start">
+                    <div class="w-14 h-14 rounded-2xl bg-starWhite/5 flex-shrink-0 flex items-center justify-center">
+                        <i data-lucide="mic" class="text-starWhite"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading text-lg mb-2">Vocalize the Void</h3>
+                        <p class="text-textDim text-sm mb-4">A guided journaling mission to put words to feelings that seem too big or too abstract for normal conversation.</p>
+                        <span class="text-[10px] font-bold text-starWhite/40 border border-starWhite/10 px-2 py-1 rounded">DAILY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="py-20 glass-strong">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center gap-4 mb-8">
+                <i data-lucide="instagram" class="text-textDim hover:text-teal cursor-pointer transition-colors"></i>
+                <i data-lucide="youtube" class="text-textDim hover:text-teal cursor-pointer transition-colors"></i>
+                <i data-lucide="mail" class="text-textDim hover:text-teal cursor-pointer transition-colors"></i>
+            </div>
+            <p class="text-textDim text-sm">&copy; 2026 Sampoorn Anand. All signal, no noise. 🌊</p>
+        </div>
+    </footer>
+
+    <!-- ======= JAVASCRIPT ======= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initVisualizer();
+            updateMixer();
+        });
+
+        // ===== MOOD MIXER =====
+        function updateMixer() {
+            const stress = document.getElementById('stressSlider').value;
+            const social = document.getElementById('socialSlider').value;
+            const harmony = document.getElementById('harmonySlider').value;
+
+            document.getElementById('stressVal').innerText = stress + '%';
+            document.getElementById('socialVal').innerText = social + '%';
+            document.getElementById('harmonyVal').innerText = harmony + '%';
+
+            const result = document.getElementById('mixerResult');
+            const vis = document.getElementById('visualizer');
+            
+            // Adjust visualizer intensity
+            const bars = vis.children;
+            for(let bar of bars) {
+                const speed = 1.5 - (harmony / 100);
+                bar.style.animationDuration = (Math.random() * speed + 0.2) + 's';
+                bar.style.opacity = (harmony / 100) + 0.2;
+            }
+
+            if (stress > 70) {
+                result.innerText = '"Frequency High: Stress detected. Suggest initiating Signal Search mission."';
+                result.className = "font-sub italic text-teal/80";
+            } else if (social > 70) {
+                result.innerText = '"Peer Static High: Suggest Social Buffer visualization."';
+                result.className = "font-sub italic text-violet-400/80";
+            } else if (harmony > 80) {
+                result.innerText = '"Resonance Optimized: You are in a state of peak harmony."';
+                result.className = "font-sub italic text-teal font-bold";
+            } else {
+                result.innerText = '"Signal stable. Continue monitoring your resonance."';
+                result.className = "font-sub italic text-starWhite";
+            }
+        }
+
+        function initVisualizer() {
+            const vis = document.getElementById('visualizer');
+            for(let i=0; i<15; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'wave-bar';
+                bar.style.animationDelay = (i * 0.1) + 's';
+                bar.style.height = (Math.random() * 30 + 10) + 'px';
+                vis.appendChild(bar);
+            }
+        }
+
+        // ===== THOUGHT DISSOLVER =====
+        function dissolveThought() {
+            const input = document.getElementById('thoughtInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const area = document.getElementById('dissolveArea');
+            const display = document.getElementById('thoughtDisplay');
+            
+            display.innerText = text;
+            area.classList.remove('hidden');
+            display.classList.remove('dissolving');
+
+            setTimeout(() => {
+                display.classList.add('dissolving');
+                setTimeout(() => {
+                    area.classList.add('hidden');
+                    input.value = '';
+                }, 2500);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
