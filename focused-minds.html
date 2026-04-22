@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Focused Minds — Classes 3-5 | Sampoorn Anand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cloud: '#F0F4F8',
+                        slate: '#6B7280',
+                        cyan_light: '#E0F7FA',
+                        cyan_dark: '#00ACC1',
+                        ocean: '#5B8FB9',
+                        leaf: '#6A9C78',
+                    },
+                    fontFamily: {
+                        heading: ['Quicksand', 'sans-serif'],
+                        body: ['Nunito', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Nunito', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Quicksand', sans-serif; }
+        html { scroll-behavior: smooth; }
+
+        /* Box Breather Animation */
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.5); }
+            50% { transform: scale(1.5); }
+            75% { transform: scale(1); }
+        }
+        .breather-circle {
+            animation: breathe 16s linear infinite;
+        }
+
+        /* Focus Anchor Pulse */
+        @keyframes pulse-focus {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+        .focus-dot {
+            animation: pulse-focus 3s ease-in-out infinite;
+        }
+
+        /* Gratitude Jar Animation */
+        @keyframes fly-to-jar {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100px) scale(0.2); opacity: 0; }
+        }
+        .gratitude-item-anim {
+            animation: fly-to-jar 1s forwards;
+        }
+
+        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .mobile-menu.open { max-height: 300px; }
+    </style>
+</head>
+<body class="bg-cloud text-gray-700 overflow-x-hidden">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <svg class="w-9 h-9 text-leaf group-hover:text-ocean transition-colors" viewBox="0 0 48 48" fill="none">
+                        <path d="M24 40C24 40 8 30 8 20C8 14 12 10 18 12C20.5 13 22.5 15 24 18C25.5 15 27.5 13 30 12C36 10 40 14 40 20C40 30 24 40 24 40Z" fill="currentColor" opacity="0.3"/>
+                        <path d="M24 32C24 32 18 26 18 22C18 19.5 20 18 22 18.8C23.2 19.3 24 20.5 24 20.5C24 20.5 24.8 19.3 26 18.8C28 18 30 19.5 30 22C30 26 24 32 24 32Z" fill="currentColor"/>
+                        <line x1="24" y1="32" x2="24" y2="44" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <span class="font-heading font-bold text-xl md:text-2xl text-cyan_dark">Sampoorn Anand</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html#programs" class="font-heading font-semibold text-slate hover:text-cyan_dark transition-colors">Programs</a>
+                    <a href="index.html#resources" class="font-heading font-semibold text-slate hover:text-cyan_dark transition-colors">Resources</a>
+                    <a href="#join" class="bg-cyan_dark text-white font-heading font-bold px-5 py-2 rounded-full shadow-lg">Join Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="min-h-[70vh] flex items-center justify-center pt-24 pb-16 bg-cyan_light/30 text-center px-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="font-heading font-extrabold text-5xl md:text-7xl text-gray-800 mb-6">🎯 Focused Minds</h1>
+            <p class="text-xl md:text-2xl text-slate max-w-2xl mx-auto mb-10">Unlock your inner superpower: The power of Focus.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#interactive" class="bg-cyan_dark text-white font-heading font-bold px-8 py-4 rounded-full text-lg shadow-xl hover:scale-105 transition-transform">Try Interactive Tools 🚀</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCIENCE SECTION -->
+    <section class="py-20 bg-white px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-heading font-bold text-3xl md:text-4xl text-gray-800 mb-6">The Science of Focus 🧠</h2>
+            <p class="text-lg text-slate leading-relaxed mb-8">
+                Did you know your brain has its own 'director'? It's called <strong>Metacognition</strong>. 
+                At ages 8-12, your brain is getting better at thinking about what you are thinking! 
+                By practicing focus, you're literally building a stronger, smarter highway for your thoughts.
+            </p>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SECTION -->
+    <section id="interactive" class="py-20 bg-cyan_light/20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="font-heading font-bold text-3xl md:text-4xl text-center text-gray-800 mb-16">Mindful Play Zone 🎮</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                
+                <!-- Box Breather -->
+                <div class="bg-white p-10 rounded-3xl shadow-lg text-center relative overflow-hidden">
+                    <h3 class="font-heading font-bold text-xl mb-6">🌡️ Box Breather</h3>
+                    <div class="flex flex-col items-center gap-8">
+                        <div class="w-32 h-32 rounded-full bg-cyan_dark/20 flex items-center justify-center relative">
+                            <div class="breather-circle w-24 h-24 rounded-full bg-cyan_dark opacity-60"></div>
+                            <span id="breatherText" class="absolute font-bold text-cyan_dark">Breathe In</span>
+                        </div>
+                        <p class="text-sm text-slate">Match your breath with the expanding circle.</p>
+                    </div>
+                </div>
+
+                <!-- Focus Anchor -->
+                <div class="bg-white p-10 rounded-3xl shadow-lg text-center">
+                    <h3 class="font-heading font-bold text-xl mb-6">🎯 Focus Anchor</h3>
+                    <div class="flex flex-col items-center gap-8 h-48 justify-center">
+                        <div class="focus-dot w-6 h-6 rounded-full bg-cyan_dark shadow-lg shadow-cyan_dark/50"></div>
+                        <p class="text-sm text-slate">Keep your eyes fixed on the dot and quiet your mind.</p>
+                    </div>
+                </div>
+
+                <!-- Gratitude Jar -->
+                <div class="bg-white p-10 rounded-3xl shadow-lg text-center relative">
+                    <h3 class="font-heading font-bold text-xl mb-6">📝 Gratitude Jar</h3>
+                    <div class="flex flex-col items-center gap-4">
+                        <input type="text" id="gratitudeInput" placeholder="I am grateful for..." class="w-full px-4 py-2 border rounded-lg outline-none focus:border-cyan_dark">
+                        <button onclick="addGratitude()" class="w-full bg-cyan_dark text-white font-bold py-2 rounded-lg hover:opacity-90">Add to Jar</button>
+                        <div id="jar" class="w-24 h-32 border-4 border-cyan_dark/30 rounded-b-2xl relative mt-4">
+                            <span class="absolute bottom-2 left-0 right-0 text-[10px] text-slate">My Jar</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12 text-center">
+        <p>&copy; 2026 Sampoorn Anand. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Box Breather Logic
+        const textEl = document.getElementById('breatherText');
+        const phases = ["Breathe In", "Hold", "Breathe Out", "Hold"];
+        let currentPhase = 0;
+        setInterval(() => {
+            currentPhase = (currentPhase + 1) % 4;
+            textEl.innerText = phases[currentPhase];
+        }, 4000);
+
+        // Gratitude Jar Logic
+        function addGratitude() {
+            const input = document.getElementById('gratitudeInput');
+            if(!input.value) return;
+            
+            const jar = document.getElementById('jar');
+            const spark = document.createElement('div');
+            spark.innerText = '✨';
+            spark.className = 'absolute bottom-10 left-10 gratitude-item-anim';
+            jar.appendChild(spark);
+            
+            input.value = '';
+            setTimeout(() => spark.remove(), 1000);
+        </div>
+    </script>
+</body>
+</html>
