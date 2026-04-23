@@ -25,6 +25,58 @@ background:var(--bg);
 color:var(--text);
 }
 
+  <div class="grid">
+
+<!-- ===== 1. FOCUS ===== -->
+<div class="card">
+<h3>🧠 Focus Training</h3>
+<p class="sub">Follow the dot. Keep your attention steady.</p>
+
+<div class="focus-area">
+<div id="focusDot"></div>
+</div>
+
+<button onclick="startFocus()">Start</button>
+<p id="focusMsg"></p>
+</div>
+
+<!-- ===== 2. BREATHING ===== -->
+<div class="card">
+<h3>🌬 Breathing Exercise</h3>
+<p class="sub">Breathe slowly with the circle.</p>
+
+<div class="circle" id="breathCircle"></div>
+
+<button onclick="startBreath()">Start</button>
+<p id="breathText"></p>
+</div>
+
+<!-- ===== 3. THOUGHT ===== -->
+<div class="card">
+<h3>💭 Thought Awareness</h3>
+<p class="sub">Notice your thought. Let it pass.</p>
+
+<input id="thoughtInput" placeholder="Type a thought..." />
+<button onclick="releaseThought()">Release</button>
+
+<p id="thoughtMsg"></p>
+</div>
+
+<!-- ===== 4. EMOTION ===== -->
+<div class="card">
+<h3>❤️ Emotional Balance</h3>
+<p class="sub">Choose how you feel.</p>
+
+<div class="emo">
+<span onclick="emotion('Calm 😌')">😌</span>
+<span onclick="emotion('Happy 😊')">😊</span>
+<span onclick="emotion('Tense 😟')">😟</span>
+</div>
+
+<p id="emotionMsg"></p>
+</div>
+
+</div>
 /* ===== NAV ===== */
 .nav{
 display:flex;
