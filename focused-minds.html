@@ -17,7 +17,146 @@ font-family:Inter;
 background:#F7FAFF;
 color:#1F2937;
 }
+/* ===== HERO BASE ===== */
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:80px 80px;
+background:linear-gradient(135deg,#F5F9FF,#EDF4FF);
+overflow:hidden;
+}
 
+/* LEFT */
+.hero-left{
+max-width:520px;
+}
+
+.tag{
+background:#EAF2FF;
+color:#3B82F6;
+padding:6px 14px;
+border-radius:20px;
+font-size:13px;
+display:inline-block;
+margin-bottom:15px;
+}
+
+/* TITLE */
+h1{
+font-size:52px;
+line-height:1.1;
+margin:10px 0;
+font-weight:700;
+}
+
+h1 span{
+color:#6FA8DC;
+}
+
+/* SUBTITLE */
+.subtitle{
+color:#6B7280;
+font-size:18px;
+margin:20px 0;
+}
+
+/* BUTTONS */
+.hero-buttons button{
+padding:14px 22px;
+border-radius:30px;
+border:none;
+margin-right:12px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.primary{
+background:#6FA8DC;
+color:white;
+box-shadow:0 10px 20px rgba(111,168,220,0.3);
+}
+
+.primary:hover{
+transform:translateY(-2px);
+box-shadow:0 15px 30px rgba(111,168,220,0.4);
+}
+
+.secondary{
+background:white;
+border:1px solid #ddd;
+}
+
+.secondary:hover{
+background:#F9FAFB;
+}
+
+/* ===== IMAGE ===== */
+.hero-img{
+position:relative;
+}
+
+.hero-img img{
+width:420px;
+border-radius:24px;
+position:relative;
+z-index:2;
+box-shadow:0 30px 60px rgba(0,0,0,0.15);
+}
+
+/* GLOW */
+.glow{
+position:absolute;
+width:420px;
+height:420px;
+background:radial-gradient(circle, rgba(111,168,220,0.25), transparent 70%);
+top:0;
+left:0;
+z-index:1;
+}
+
+/* FLOATING ORBS */
+.orb{
+position:absolute;
+border-radius:50%;
+background:rgba(111,168,220,0.2);
+animation:float 6s ease-in-out infinite;
+}
+
+.orb1{
+width:80px;
+height:80px;
+top:-20px;
+right:-30px;
+}
+
+.orb2{
+width:50px;
+height:50px;
+bottom:-20px;
+left:-20px;
+animation-delay:2s;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float{
+0%,100%{transform:translateY(0px);}
+50%{transform:translateY(-20px);}
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+.hero{
+flex-direction:column;
+text-align:center;
+padding:60px 20px;
+}
+.hero-img img{
+width:90%;
+margin-top:30px;
+}
+}
 /* ===== NAVBAR ===== */
 .nav{
 display:flex;
