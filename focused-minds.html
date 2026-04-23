@@ -10,6 +10,7 @@
 
 <style>
 
+/* ===== BASE ===== */
 body{
 margin:0;
 font-family:Inter;
@@ -17,11 +18,10 @@ background:#F5F9FF;
 color:#1F2937;
 }
 
-/* ===== HERO (FULL WIDTH IMAGE) ===== */
+/* ===== HERO ===== */
 .hero{
 position:relative;
-width:100%;
-height:80vh;
+height:85vh;
 overflow:hidden;
 }
 
@@ -29,6 +29,7 @@ overflow:hidden;
 width:100%;
 height:100%;
 object-fit:cover;
+animation:breathZoom 12s ease-in-out infinite;
 }
 
 /* overlay */
@@ -42,7 +43,12 @@ height:100%;
 background:linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
 }
 
-/* hero content */
+@keyframes breathZoom{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.05);}
+}
+
+/* HERO CONTENT */
 .hero-content{
 position:absolute;
 top:50%;
@@ -51,87 +57,100 @@ transform:translate(-50%,-50%);
 color:white;
 text-align:center;
 z-index:2;
-max-width:700px;
+max-width:650px;
+padding:0 20px;
 }
 
 .hero-content h1{
-font-size:52px;
+font-size:56px;
+font-weight:700;
+letter-spacing:-1px;
 margin-bottom:10px;
 }
 
 .hero-content p{
-font-size:18px;
-line-height:1.6;
+font-size:19px;
+opacity:0.95;
+line-height:1.7;
 }
 
-.hero-buttons{
-margin-top:20px;
-}
-
+/* BUTTONS */
 .hero-buttons button{
-padding:12px 22px;
-border:none;
+padding:14px 26px;
 border-radius:30px;
-margin:5px;
+border:none;
+margin:8px;
 cursor:pointer;
+font-weight:600;
+transition:all 0.3s ease;
 }
 
 .primary{
-background:#6FA8DC;
+background:rgba(111,168,220,0.9);
 color:white;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.primary:hover{
+transform:translateY(-2px);
+box-shadow:0 15px 40px rgba(0,0,0,0.25);
 }
 
 .secondary{
-background:white;
+background:rgba(255,255,255,0.9);
 color:#333;
 }
 
 /* ===== SECTION ===== */
 .section{
-padding:60px 20px;
+padding:80px 20px;
 text-align:center;
 }
 
 .section h2{
-font-size:28px;
-margin-bottom:10px;
+font-size:32px;
+margin-bottom:15px;
 }
 
 .section p{
 color:#6B7280;
 max-width:700px;
 margin:auto;
+font-size:17px;
+line-height:1.6;
 }
 
 /* ===== CARDS ===== */
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-max-width:1000px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+max-width:1100px;
 margin:40px auto;
+padding:0 20px;
 }
 
 .card{
 background:white;
-padding:25px;
-border-radius:16px;
+padding:28px;
+border-radius:18px;
 border:1px solid #E5E7EB;
-transition:0.3s;
+transition:all 0.3s ease;
 }
 
 .card:hover{
-transform:translateY(-6px);
-box-shadow:0 15px 30px rgba(0,0,0,0.06);
+transform:translateY(-8px);
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
 }
 
 .icon{
-font-size:28px;
-margin-bottom:10px;
+font-size:30px;
+margin-bottom:12px;
 }
 
 .card h3{
 margin:10px 0;
+font-size:18px;
 }
 
 .card p{
@@ -139,16 +158,28 @@ font-size:14px;
 color:#6B7280;
 }
 
-/* ===== MINI INTERACTION ===== */
+/* ===== BREATH MINI ===== */
 .circle{
-width:50px;
-height:50px;
+width:55px;
+height:55px;
 border-radius:50%;
 background:#6FA8DC;
-margin:10px auto;
+margin:12px auto;
 transition:2s;
 }
 .expand{transform:scale(1.5);}
+
+/* ===== FADE ANIMATION ===== */
+.fade-up{
+opacity:0;
+transform:translateY(30px);
+transition:all 0.8s ease;
+}
+
+.fade-up.show{
+opacity:1;
+transform:translateY(0);
+}
 
 /* ===== FOOTER ===== */
 .footer{
@@ -171,7 +202,7 @@ color:#6B7280;
 <h1>Focused Minds</h1>
 
 <p>
-Helping children build focus, emotional awareness, and calm thinking through mindful practices.
+Build focus, emotional awareness, and calm thinking — one breath at a time.
 </p>
 
 <div class="hero-buttons">
@@ -183,7 +214,7 @@ Helping children build focus, emotional awareness, and calm thinking through min
 </section>
 
 <!-- ===== ABOUT ===== -->
-<section class="section">
+<section class="section fade-up">
 <h2>About the Program</h2>
 
 <p>
@@ -195,27 +226,28 @@ emotional clarity, and inner calm through simple and guided mindfulness practice
 <!-- ===== CARDS ===== -->
 <section class="cards">
 
-<div class="card">
+<div class="card fade-up">
 <div class="icon">🧠</div>
 <h3>Focus Training</h3>
 <p>Improve attention through simple visual tracking.</p>
 </div>
 
-<div class="card">
+<div class="card fade-up">
 <div class="icon">🌬</div>
 <h3>Breathing Exercises</h3>
 <p>Calm the mind using guided breathing.</p>
+
 <div class="circle" id="c"></div>
 <button onclick="breath()">Try</button>
 </div>
 
-<div class="card">
+<div class="card fade-up">
 <div class="icon">💭</div>
 <h3>Thought Awareness</h3>
 <p>Observe thoughts and let them pass.</p>
 </div>
 
-<div class="card">
+<div class="card fade-up">
 <div class="icon">❤️</div>
 <h3>Emotional Balance</h3>
 <p>Understand and manage emotions better.</p>
@@ -229,6 +261,8 @@ emotional clarity, and inner calm through simple and guided mindfulness practice
 </div>
 
 <script>
+
+/* BREATH */
 function breath(){
 let c=document.getElementById("c");
 c.classList.add("expand");
@@ -237,6 +271,20 @@ setTimeout(()=>{
 c.classList.remove("expand");
 },2000);
 }
+
+/* SCROLL ANIMATION */
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll(".fade-up").forEach(el=>{
+observer.observe(el);
+});
+
 </script>
 
 </body>
