@@ -1,96 +1,260 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<title>Focused Minds | Sampoorn Anand</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 body{
 margin:0;
 font-family:Inter;
 background:#F5F9FF;
+color:#1F2937;
+}
+
+/* ===== NAVBAR ===== */
+.nav{
 display:flex;
-justify-content:center;
+justify-content:space-between;
 align-items:center;
-height:100vh;
-}
-
-.app{
-width:360px;
-height:640px;
+padding:16px 40px;
 background:white;
-border-radius:24px;
-box-shadow:0 20px 40px rgba(0,0,0,0.1);
-display:flex;
-flex-direction:column;
-overflow:hidden;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
 
-.top{
-padding:20px;
-text-align:center;
-font-weight:600;
+.logo{
+font-weight:700;
+color:#4CAF88;
+font-size:20px;
 }
 
-.circle{
-width:140px;
-height:140px;
-border-radius:50%;
+.nav a{
+margin:0 15px;
+text-decoration:none;
+color:#555;
+font-weight:500;
+}
+
+.btn-primary{
 background:#6FA8DC;
-margin:40px auto;
-transition:4s ease-in-out;
+color:white;
+padding:10px 18px;
+border-radius:20px;
 }
 
-.text{
+/* ===== HERO ===== */
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:60px 80px;
+}
+
+.hero-left{
+max-width:520px;
+}
+
+.tag{
+background:#E3EDFF;
+color:#3B82F6;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+display:inline-block;
+margin-bottom:15px;
+}
+
+h1{
+font-size:48px;
+margin:10px 0;
+}
+
+.subtitle{
+color:#3B82F6;
+font-weight:600;
+margin-bottom:10px;
+}
+
+.desc{
+color:#6B7280;
+line-height:1.6;
+}
+
+.hero-buttons{
+margin-top:20px;
+}
+
+.hero-buttons button{
+padding:12px 20px;
+border-radius:25px;
+border:none;
+margin-right:10px;
+cursor:pointer;
+}
+
+.primary{
+background:#6FA8DC;
+color:white;
+}
+
+.secondary{
+background:white;
+border:1px solid #ccc;
+}
+
+/* ===== IMAGE ===== */
+.hero-img img{
+width:320px;
+}
+
+/* ===== SECTION ===== */
+.section{
 text-align:center;
+padding:60px 20px;
+}
+
+.section h2{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.section p{
+color:#6B7280;
+max-width:700px;
+margin:auto;
+}
+
+/* ===== CARDS ===== */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:1000px;
+margin:40px auto;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:16px;
+border:1px solid #E5E7EB;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 30px rgba(0,0,0,0.06);
+}
+
+.icon{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.card h3{
+margin:10px 0;
+}
+
+.card p{
+font-size:14px;
 color:#6B7280;
 }
 
-.btn{
-margin:20px auto;
-padding:12px 24px;
-border:none;
-border-radius:20px;
-background:#6FA8DC;
-color:white;
-cursor:pointer;
-}
 </style>
 </head>
 
 <body>
 
-<div class="app">
-<div class="top">Day 1 • Focus</div>
+<!-- ===== NAVBAR ===== -->
+<div class="nav">
+<div class="logo">Sampoorn Anand</div>
 
-<div class="circle" id="c"></div>
-<div class="text" id="t">Tap to begin</div>
-
-<button class="btn" onclick="start()">Start Session</button>
+<div>
+<a href="#">Programs</a>
+<a href="#">Resources</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+<a href="#" class="btn-primary">Join Now</a>
+</div>
 </div>
 
-<script>
-function speak(text){
-let msg=new SpeechSynthesisUtterance(text);
-msg.rate=0.9;
-speechSynthesis.speak(msg);
-}
+<!-- ===== HERO ===== -->
+<section class="hero">
 
-function start(){
-let c=document.getElementById("c");
-let t=document.getElementById("t");
+<div class="hero-left">
 
-t.innerText="Inhale...";
-c.style.transform="scale(1.5)";
-speak("Breathe in slowly");
+<div class="tag">Classes 3–5</div>
 
-setTimeout(()=>{
-t.innerText="Exhale...";
-c.style.transform="scale(1)";
-speak("And breathe out");
-},4000);
-}
-</script>
+<h1>Focused Minds</h1>
+
+<div class="subtitle">
+Building Focus. Strengthening Minds. Shaping Futures.
+</div>
+
+<p class="desc">
+A mindful journey for children (Classes 3–5) to improve concentration,
+emotional awareness, and mental clarity through fun, engaging mindfulness practices.
+</p>
+
+<div class="hero-buttons">
+<button class="primary">Enroll Now →</button>
+<button class="secondary">Download Brochure</button>
+</div>
+
+</div>
+
+<div class="hero-img">
+<img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
+</div>
+
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="section">
+
+<h2>About the Program</h2>
+
+<p>
+Focused Minds is designed for children in Classes 3–5 (age 8–12) to help them
+develop the ability to focus, manage distractions, and understand their emotions better.
+Through simple yet powerful mindfulness techniques, children build strong inner skills.
+</p>
+
+</section>
+
+<!-- ===== CARDS ===== -->
+<section class="cards">
+
+<div class="card">
+<div class="icon">🎯</div>
+<h3>Better Concentration</h3>
+<p>Helps children improve attention span and stay focused on tasks.</p>
+</div>
+
+<div class="card">
+<div class="icon">💙</div>
+<h3>Emotional Awareness</h3>
+<p>Encourages children to identify and understand their emotions.</p>
+</div>
+
+<div class="card">
+<div class="icon">🧠</div>
+<h3>Mental Clarity</h3>
+<p>Enhances memory, problem-solving, and decision-making abilities.</p>
+</div>
+
+<div class="card">
+<div class="icon">🛡️</div>
+<h3>Stress Management</h3>
+<p>Teaches simple techniques to handle stress and stay calm.</p>
+</div>
+
+</section>
 
 </body>
 </html>
