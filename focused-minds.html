@@ -4,107 +4,145 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Focused Minds Program (Age 8–12) | Sampoorn Anand</title>
+<title>Focused Minds Program | Sampoorn Anand</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --primary:#6FA8DC;      /* Focused Minds blue */
-  --bg:#EAF2F7;
-  --badge:#DCEAFE;
-  --text:#1F2937;
-  --muted:#6B7280;
-  --accent:#7FB77E;
+--primary:#5B8DEF;
+--bg:#F5F9FF;
+--text:#1F2937;
+--muted:#6B7280;
+--card:#FFFFFF;
 }
 
-*{box-sizing:border-box}
+*{box-sizing:border-box;}
 body{
-  margin:0;
-  font-family:'Nunito',sans-serif;
-  color:var(--text);
-  background:linear-gradient(135deg,#E6F4F1,#EEF4FB);
+margin:0;
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--text);
 }
 
-/* ===== NAVBAR ===== */
+/* ===== NAV ===== */
 .nav{
-  position:sticky; top:0; z-index:10;
-  background:rgba(255,255,255,.85);
-  backdrop-filter: blur(8px);
-  display:flex; justify-content:space-between; align-items:center;
-  padding:14px 20px; box-shadow:0 2px 8px rgba(0,0,0,.05);
-}
-.nav a{ text-decoration:none; color:#374151; margin:0 10px; font-weight:600; }
-.btn{
-  background:linear-gradient(90deg,var(--primary),var(--accent));
-  color:#fff; border:none; border-radius:24px; padding:10px 18px;
-  cursor:pointer; font-weight:700;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:white;
+border-bottom:1px solid #eee;
 }
 
-/* ===== LAYOUT ===== */
-.container{ max-width:1100px; margin:auto; padding:24px; }
-.hero{ text-align:center; padding:30px 0 10px; }
-.hero h1{ font-size:42px; margin:8px 0; }
-.hero p{ color:var(--muted); }
+.nav a{
+text-decoration:none;
+margin:0 15px;
+color:var(--muted);
+font-weight:500;
+}
 
-.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-top:18px; }
+/* ===== HERO ===== */
+.hero{
+text-align:center;
+padding:80px 20px 40px;
+}
 
+.hero h1{
+font-size:48px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.hero p{
+color:var(--muted);
+font-size:18px;
+max-width:600px;
+margin:auto;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
+
+/* ===== GRID ===== */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* ===== CARD ===== */
 .card{
-  background:var(--bg);
-  border-radius:18px;
-  padding:18px;
-  border-top:5px solid var(--primary);
-  box-shadow:0 6px 18px rgba(0,0,0,.05);
+background:var(--card);
+padding:25px;
+border-radius:16px;
+border:1px solid #E5E7EB;
+transition:.3s;
 }
 
-.badge{
-  display:inline-block; background:var(--badge); color:#2563EB;
-  padding:5px 10px; border-radius:16px; font-size:12px; font-weight:700;
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
 }
 
-/* ===== GAME HUD ===== */
-.hud{
-  display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:10px;
-}
-.hud .pill{
-  background:#fff; border-radius:20px; padding:6px 12px; font-weight:700;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);
+/* ===== SECTION ===== */
+.section{
+margin-top:60px;
+text-align:center;
 }
 
-/* ===== FOCUS GAME ===== */
-.arena{
-  height:160px; background:#fff; border-radius:14px; position:relative; overflow:hidden;
-}
-.dot{
-  width:20px; height:20px; border-radius:50%; background:#111; position:absolute;
+.section h2{
+font-size:28px;
+margin-bottom:10px;
 }
 
-/* ===== BREATHING ===== */
-.breath-wrap{ text-align:center; }
+.section p{
+color:var(--muted);
+max-width:700px;
+margin:auto;
+}
+
+/* ===== BREATH MODULE ===== */
+.breath{
+margin-top:30px;
+}
+
 .circle{
-  width:120px; height:120px; border-radius:50%; margin:10px auto;
-  background:var(--primary); transition:transform 3s ease-in-out, opacity .3s;
+width:120px;
+height:120px;
+border-radius:50%;
+background:var(--primary);
+margin:20px auto;
+transition:3s ease-in-out;
 }
-.label{ font-weight:800; margin-top:6px; }
 
-/* ===== JOURNAL ===== */
-.input{
-  width:100%; padding:10px 12px; border-radius:10px; border:1px solid #e5e7eb;
+.expand{transform:scale(1.4);}
+
+/* ===== CTA ===== */
+.cta{
+margin-top:60px;
+text-align:center;
 }
-.list{ margin-top:10px; padding-left:18px; }
 
-/* ===== EMOTIONS ===== */
-.emo-btn{
-  border:none; border-radius:18px; padding:8px 12px; margin:4px; cursor:pointer;
-  background:#fff; box-shadow:0 2px 8px rgba(0,0,0,.05); font-weight:700;
+.btn{
+background:var(--primary);
+color:white;
+padding:14px 28px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
 }
 
 /* ===== FOOTER ===== */
-.footer{ text-align:center; padding:20px; color:var(--muted); }
-.small{ font-size:12px; color:var(--muted); }
-
-@media(max-width:600px){
-  .hero h1{ font-size:32px; }
+.footer{
+text-align:center;
+padding:30px;
+color:var(--muted);
+margin-top:60px;
 }
 </style>
 </head>
@@ -113,180 +151,86 @@ body{
 
 <!-- NAV -->
 <div class="nav">
-  <div><b>Sampoorn Anand</b></div>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="index.html#programs">Programs</a>
-  </div>
-  <button class="btn" onclick="scrollToSection('arenaCard')">Start</button>
+<div><b>Sampoorn Anand</b></div>
+<div>
+<a href="#">Home</a>
+<a href="#">Programs</a>
+<a href="#">Contact</a>
+</div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Focused Minds</h1>
+<p>Building attention, emotional clarity and calm thinking in children aged 8–12.</p>
 </div>
 
 <div class="container">
 
-  <!-- HERO -->
-  <div class="hero">
-    <span class="badge">Classes 3–5</span>
-    <h1>🎯 Focused Minds</h1>
-    <p>Train focus, calm the mind, and understand emotions — through fun activities.</p>
+<!-- FEATURES -->
+<div class="grid">
+<div class="card">
+<h3>Focus Training</h3>
+<p>Structured techniques to improve sustained attention.</p>
+</div>
 
-    <div class="hud">
-      <div class="pill">⭐ Points: <span id="points">0</span></div>
-      <div class="pill">🔥 Streak: <span id="streak">0</span></div>
-      <div class="pill">🏅 Stars: <span id="stars">0</span></div>
-    </div>
-  </div>
+<div class="card">
+<h3>Breathing Awareness</h3>
+<p>Calming breath practices to regulate the nervous system.</p>
+</div>
 
-  <!-- FOCUS GAME -->
-  <div class="card" id="arenaCard">
-    <h3>🧠 Focus Training Game</h3>
-    <p class="small">Tap the moving dot 10 times.</p>
-    <div class="arena" id="arena">
-      <div class="dot" id="dot"></div>
-    </div>
-    <div style="margin-top:8px;">
-      <button class="btn" onclick="startGame()">Start Game</button>
-      <span id="gameMsg" class="small"></span>
-    </div>
-  </div>
+<div class="card">
+<h3>Thought Observation</h3>
+<p>Helping children observe and understand their thoughts.</p>
+</div>
 
-  <!-- BREATHING -->
-  <div class="card breath-wrap">
-    <h3>🌬 Breathing Trainer</h3>
-    <div class="circle" id="circle"></div>
-    <div class="label" id="bLabel">Ready</div>
-    <button class="btn" onclick="startBreath()">Start</button>
-  </div>
+<div class="card">
+<h3>Emotional Balance</h3>
+<p>Recognising and managing emotions with awareness.</p>
+</div>
+</div>
 
-  <!-- JOURNAL -->
-  <div class="card">
-    <h3>💭 Thought Journal</h3>
-    <input class="input" id="thoughtInput" placeholder="Write a thought...">
-    <div style="margin-top:8px;">
-      <button class="btn" onclick="addThought()">Add</button>
-      <button class="btn" onclick="clearThoughts()" style="background:#9CA3AF">Clear</button>
-    </div>
-    <ul id="thoughtList" class="list"></ul>
-  </div>
+<!-- BREATHING EXPERIENCE -->
+<div class="section">
+<h2>Experience a Simple Practice</h2>
+<p>Follow the circle. Inhale as it expands, exhale as it contracts.</p>
 
-  <!-- EMOTIONS -->
-  <div class="card">
-    <h3>❤️ Emotion Tracker</h3>
-    <div>
-      <button class="emo-btn" onclick="setEmotion('Happy 😊')">Happy</button>
-      <button class="emo-btn" onclick="setEmotion('Angry 😡')">Angry</button>
-      <button class="emo-btn" onclick="setEmotion('Sad 😢')">Sad</button>
-      <button class="emo-btn" onclick="setEmotion('Calm 😌')">Calm</button>
-    </div>
-    <p id="emoMsg" class="small"></p>
-  </div>
+<div class="breath">
+<div id="circle" class="circle"></div>
+<button onclick="startBreath()" class="btn">Start Practice</button>
+</div>
+</div>
+
+<!-- WHY -->
+<div class="section">
+<h2>Why This Matters</h2>
+<p>
+In a world of constant distraction, the ability to focus is a lifelong advantage.
+This program builds that foundation early.
+</p>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+<a href="#" class="btn">Enroll Now</a>
+</div>
 
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
-  © 2026 Sampoorn Anand • sa@sampoornanand.com
+© 2026 Sampoorn Anand • sa@sampoornanand.com
 </div>
 
 <script>
-/* ===== STATE (saved) ===== */
-let state = JSON.parse(localStorage.getItem('fm_state')||'{"points":0,"streak":0,"stars":0,"thoughts":[],"lastEmotion":""}');
-const save=()=>localStorage.setItem('fm_state',JSON.stringify(state));
-const updHUD=()=>{
-  document.getElementById('points').innerText=state.points;
-  document.getElementById('streak').innerText=state.streak;
-  document.getElementById('stars').innerText=state.stars;
-};
-updHUD();
-
-/* ===== UTIL ===== */
-function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
-function addPoints(p){
-  state.points+=p; state.streak+=1;
-  if(state.points>=100){ state.stars+=1; state.points=0; }
-  save(); updHUD();
-}
-
-/* ===== FOCUS GAME ===== */
-let hits=0, playing=false, moveTimer=null;
-const arena=document.getElementById('arena');
-const dot=document.getElementById('dot');
-function randomPos(){
-  const r=arena.getBoundingClientRect();
-  const x=Math.random()*(r.width-24);
-  const y=Math.random()*(r.height-24);
-  dot.style.left=x+'px'; dot.style.top=y+'px';
-}
-dot.addEventListener('click',()=>{
-  if(!playing) return;
-  hits++; addPoints(5);
-  document.getElementById('gameMsg').innerText=`Hits: ${hits}/10`;
-  if(hits>=10){
-    playing=false; clearInterval(moveTimer);
-    document.getElementById('gameMsg').innerText='Great Focus! ⭐';
-    addPoints(20);
-  }
-});
-function startGame(){
-  hits=0; playing=true; document.getElementById('gameMsg').innerText='Hits: 0/10';
-  randomPos();
-  clearInterval(moveTimer);
-  moveTimer=setInterval(randomPos,900);
-}
-
-/* ===== BREATHING (4-4-4) ===== */
-let bTimer=null;
-function beep(){
-  const ctx=new (window.AudioContext||window.webkitAudioContext)();
-  const o=ctx.createOscillator(), g=ctx.createGain();
-  o.connect(g); g.connect(ctx.destination);
-  o.frequency.value=440; o.start();
-  g.gain.setValueAtTime(0.1,ctx.currentTime);
-  g.gain.exponentialRampToValueAtTime(0.0001,ctx.currentTime+0.4);
-  o.stop(ctx.currentTime+0.4);
-}
 function startBreath(){
-  const c=document.getElementById('circle');
-  const l=document.getElementById('bLabel');
-  let phase=0; // 0 inhale,1 hold,2 exhale
-  clearInterval(bTimer);
-  bTimer=setInterval(()=>{
-    if(phase===0){ l.innerText='Inhale'; c.style.transform='scale(1.5)'; beep(); }
-    if(phase===1){ l.innerText='Hold'; }
-    if(phase===2){ l.innerText='Exhale'; c.style.transform='scale(1)'; beep(); addPoints(2); }
-    phase=(phase+1)%3;
-  },4000);
-}
+let c=document.getElementById("circle");
 
-/* ===== JOURNAL ===== */
-const listEl=document.getElementById('thoughtList');
-function renderThoughts(){
-  listEl.innerHTML='';
-  state.thoughts.forEach((t,i)=>{
-    const li=document.createElement('li');
-    li.textContent=t;
-    listEl.appendChild(li);
-  });
-}
-renderThoughts();
-function addThought(){
-  const inp=document.getElementById('thoughtInput');
-  const v=inp.value.trim(); if(!v) return;
-  state.thoughts.push(v); inp.value='';
-  addPoints(3); save(); renderThoughts();
-}
-function clearThoughts(){
-  state.thoughts=[]; save(); renderThoughts();
-}
+c.classList.add("expand");
 
-/* ===== EMOTIONS ===== */
-function setEmotion(e){
-  state.lastEmotion=e; save();
-  let msg='';
-  if(e.includes('Angry')) msg='Take 3 deep breaths.';
-  else if(e.includes('Sad')) msg='Write one grateful thing.';
-  else if(e.includes('Happy')) msg='Share your joy!';
-  else msg='Stay present.';
-  document.getElementById('emoMsg').innerText=`You feel: ${e} • Tip: ${msg}`;
-  addPoints(2);
+setTimeout(()=>{
+c.classList.remove("expand");
+},3000);
 }
 </script>
 
