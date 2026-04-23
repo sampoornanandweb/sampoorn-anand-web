@@ -1,357 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Focused Minds Program | Sampoorn Anand</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-:root{
---primary:#5B8DEF;
---bg:#F5F9FF;
---text:#1F2937;
---muted:#6B7280;
---card:#FFFFFF;
-}
-
-*{box-sizing:border-box;}
 body{
 margin:0;
-font-family:'Inter',sans-serif;
-background:var(--bg);
-color:var(--text);
-}
-
-  <div class="grid">
-
-<!-- ===== 1. FOCUS ===== -->
-<div class="card">
-<h3>🧠 Focus Training</h3>
-<p class="sub">Follow the dot. Keep your attention steady.</p>
-
-<div class="focus-area">
-<div id="focusDot"></div>
-</div>
-
-<button onclick="startFocus()">Start</button>
-<p id="focusMsg"></p>
-</div>
-
-<!-- ===== 2. BREATHING ===== -->
-<div class="card">
-<h3>🌬 Breathing Exercise</h3>
-<p class="sub">Breathe slowly with the circle.</p>
-
-<div class="circle" id="breathCircle"></div>
-
-<button onclick="startBreath()">Start</button>
-<p id="breathText"></p>
-</div>
-.sub{
-color:#6B7280;
-font-size:14px;
-margin-bottom:10px;
-}
-
-/* CARD */
-.card{
-background:#FFFFFF;
-padding:22px;
-border-radius:16px;
-border:1px solid #E5E7EB;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-4px);
-box-shadow:0 10px 20px rgba(0,0,0,0.05);
-}
-
-/* ===== FOCUS ===== */
-.focus-area{
-height:80px;
-background:#F3F4F6;
-border-radius:12px;
-position:relative;
-margin:10px 0;
-}
-
-#focusDot{
-width:12px;
-height:12px;
-background:#5B8DEF;
-border-radius:50%;
-position:absolute;
-top:50%;
-left:10%;
-transition:1.5s linear;
-}
-
-/* ===== BREATH ===== */
-.circle{
-width:70px;
-height:70px;
-border-radius:50%;
-background:#5B8DEF;
-margin:10px auto;
-transition:3s ease-in-out;
-}
-.expand{transform:scale(1.4);}
-
-/* ===== THOUGHT ===== */
-input{
-padding:8px;
-border-radius:8px;
-border:1px solid #ddd;
-width:90%;
-margin-bottom:8px;
-}
-
-/* ===== EMOTION ===== */
-.emo span{
-font-size:22px;
-margin:5px;
-cursor:pointer;
-transition:.2s;
-}
-.emo span:hover{
-transform:scale(1.2);
-}
-<!-- ===== 3. THOUGHT ===== -->
-<div class="card">
-<h3>💭 Thought Awareness</h3>
-<p class="sub">Notice your thought. Let it pass.</p>
-
-<input id="thoughtInput" placeholder="Type a thought..." />
-<button onclick="releaseThought()">Release</button>
-
-<p id="thoughtMsg"></p>
-</div>
-
-<!-- ===== 4. EMOTION ===== -->
-<div class="card">
-<h3>❤️ Emotional Balance</h3>
-<p class="sub">Choose how you feel.</p>
-
-<div class="emo">
-<span onclick="emotion('Calm 😌')">😌</span>
-<span onclick="emotion('Happy 😊')">😊</span>
-<span onclick="emotion('Tense 😟')">😟</span>
-</div>
-
-<p id="emotionMsg"></p>
-</div>
-
-</div>
-/* ===== NAV ===== */
-.nav{
+font-family:Inter;
+background:#F5F9FF;
 display:flex;
-justify-content:space-between;
+justify-content:center;
 align-items:center;
-padding:20px 40px;
+height:100vh;
+}
+
+.app{
+width:360px;
+height:640px;
 background:white;
-border-bottom:1px solid #eee;
+border-radius:24px;
+box-shadow:0 20px 40px rgba(0,0,0,0.1);
+display:flex;
+flex-direction:column;
+overflow:hidden;
 }
 
-.nav a{
-text-decoration:none;
-margin:0 15px;
-color:var(--muted);
-font-weight:500;
-}
-
-/* ===== HERO ===== */
-.hero{
+.top{
+padding:20px;
 text-align:center;
-padding:80px 20px 40px;
-}
-
-.hero h1{
-font-size:48px;
-font-weight:700;
-margin-bottom:10px;
-}
-
-.hero p{
-color:var(--muted);
-font-size:18px;
-max-width:600px;
-margin:auto;
-}
-
-/* ===== CONTAINER ===== */
-.container{
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
-}
-
-/* ===== GRID ===== */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-/* ===== CARD ===== */
-.card{
-background:var(--card);
-padding:25px;
-border-radius:16px;
-border:1px solid #E5E7EB;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
-}
-
-/* ===== SECTION ===== */
-.section{
-margin-top:60px;
-text-align:center;
-}
-
-.section h2{
-font-size:28px;
-margin-bottom:10px;
-}
-
-.section p{
-color:var(--muted);
-max-width:700px;
-margin:auto;
-}
-
-/* ===== BREATH MODULE ===== */
-.breath{
-margin-top:30px;
-}
-
-.circle{
-width:120px;
-height:120px;
-border-radius:50%;
-background:var(--primary);
-margin:20px auto;
-transition:3s ease-in-out;
-}
-
-.expand{transform:scale(1.4);}
-
-/* ===== CTA ===== */
-.cta{
-margin-top:60px;
-text-align:center;
-}
-
-.btn{
-background:var(--primary);
-color:white;
-padding:14px 28px;
-border-radius:30px;
-text-decoration:none;
 font-weight:600;
 }
 
-/* ===== FOOTER ===== */
-.footer{
+.circle{
+width:140px;
+height:140px;
+border-radius:50%;
+background:#6FA8DC;
+margin:40px auto;
+transition:4s ease-in-out;
+}
+
+.text{
 text-align:center;
-padding:30px;
-color:var(--muted);
-margin-top:60px;
+color:#6B7280;
+}
+
+.btn{
+margin:20px auto;
+padding:12px 24px;
+border:none;
+border-radius:20px;
+background:#6FA8DC;
+color:white;
+cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<div class="nav">
-<div><b>Sampoorn Anand</b></div>
-<div>
-<a href="#">Home</a>
-<a href="#">Programs</a>
-<a href="#">Contact</a>
-</div>
-</div>
+<div class="app">
+<div class="top">Day 1 • Focus</div>
 
-<!-- HERO -->
-<div class="hero">
-<h1>Focused Minds</h1>
-<p>Building attention, emotional clarity and calm thinking in children aged 8–12.</p>
-</div>
+<div class="circle" id="c"></div>
+<div class="text" id="t">Tap to begin</div>
 
-<div class="container">
-
-<!-- FEATURES -->
-<div class="grid">
-<div class="card">
-<h3>Focus Training</h3>
-<p>Structured techniques to improve sustained attention.</p>
-</div>
-
-<div class="card">
-<h3>Breathing Awareness</h3>
-<p>Calming breath practices to regulate the nervous system.</p>
-</div>
-
-<div class="card">
-<h3>Thought Observation</h3>
-<p>Helping children observe and understand their thoughts.</p>
-</div>
-
-<div class="card">
-<h3>Emotional Balance</h3>
-<p>Recognising and managing emotions with awareness.</p>
-</div>
-</div>
-
-<!-- BREATHING EXPERIENCE -->
-<div class="section">
-<h2>Experience a Simple Practice</h2>
-<p>Follow the circle. Inhale as it expands, exhale as it contracts.</p>
-
-<div class="breath">
-<div id="circle" class="circle"></div>
-<button onclick="startBreath()" class="btn">Start Practice</button>
-</div>
-</div>
-
-<!-- WHY -->
-<div class="section">
-<h2>Why This Matters</h2>
-<p>
-In a world of constant distraction, the ability to focus is a lifelong advantage.
-This program builds that foundation early.
-</p>
-</div>
-
-<!-- CTA -->
-<div class="cta">
-<a href="#" class="btn">Enroll Now</a>
-</div>
-
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-© 2026 Sampoorn Anand • sa@sampoornanand.com
+<button class="btn" onclick="start()">Start Session</button>
 </div>
 
 <script>
-function startBreath(){
-let c=document.getElementById("circle");
+function speak(text){
+let msg=new SpeechSynthesisUtterance(text);
+msg.rate=0.9;
+speechSynthesis.speak(msg);
+}
 
-c.classList.add("expand");
+function start(){
+let c=document.getElementById("c");
+let t=document.getElementById("t");
+
+t.innerText="Inhale...";
+c.style.transform="scale(1.5)";
+speak("Breathe in slowly");
 
 setTimeout(()=>{
-c.classList.remove("expand");
-},3000);
+t.innerText="Exhale...";
+c.style.transform="scale(1)";
+speak("And breathe out");
+},4000);
 }
 </script>
 
