@@ -354,6 +354,27 @@ observer.observe(el);
 });
 
 </script>
+<script>
 
+function startFocusDemo(){
+let dot=document.getElementById("focusDot");
+let msg=document.getElementById("focusMsg");
+
+if(!dot){
+alert("Dot not found ❌");
+return;
+}
+
+msg.innerText="Follow the dot…";
+
+dot.style.left="80%";
+
+setTimeout(()=>{
+dot.style.left="10%";
+msg.innerText="Good focus 👌";
+},2000);
+}
+
+</script>
 </body>
 </html>
