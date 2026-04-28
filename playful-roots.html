@@ -135,6 +135,19 @@
             to { transform: rotate(360deg); }
         }
     </style>
+
+    .expandable {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.expandable.open {
+  max-height: 500px;
+  opacity: 1;
+}
+    </style>
 </head>
 <body class="bg-cloud text-gray-700 overflow-x-hidden">
 
@@ -793,5 +806,11 @@
             observer.observe(el);
         });
     </script>
+
+function togglePillar(id){
+  const el = document.getElementById(id);
+  el.classList.toggle("open");
+}
+</script>
 </body>
 </html>
